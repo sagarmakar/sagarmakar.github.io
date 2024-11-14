@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sagar Makar - Portfolio</title>
     
-    <!-- Favicon Link -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon added -->
+    <!-- Corrected Favicon Link -->
+    <link rel="icon" href="favicon.png" type="image/png"> <!-- Make sure favicon.png is in the same folder or specify the path -->
 
     <style>
         /* General Styling */
@@ -64,19 +64,10 @@
             width: 30px;
             height: 30px;
             margin-right: 10px;
-            background-color: transparent;
-            padding: 5px;
-            border: none;
-            filter: invert(1); /* Ensures icon matches button color */
         }
 
         .contact-btn:hover {
             background-color: #357ABD;
-        }
-
-        .contact-btn:hover img {
-            border: none;
-            filter: invert(1); /* Ensures icon stays consistent on hover */
         }
 
         /* Profile Section */
@@ -107,20 +98,26 @@
             justify-content: space-between;
             margin: 8px 0;
             align-items: center;
+            font-size: 16px;
         }
 
         .education li strong {
             flex: 1;
+            font-size: 16px;
+        }
+
+        .education .marks {
+            font-weight: bold;
+            font-size: 16px;
         }
 
         .education .year {
             font-weight: 400;
             color: #666;
+            font-size: 16px;
+            margin-left: 10px;
         }
 
-        .education .marks {
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
@@ -161,7 +158,7 @@
                     <span class="marks">CGPA: 3.38 / 4</span>
                     <span class="year">(2026)</span>
                 </li>
-                <li><strong>B.Tech. - ECE, NIIT University</strong>
+                <li><strong>B.Tech. (ECE) - NIIT University</strong>
                     <span class="marks">7.97 / 10</span>
                     <span class="year">(2022)</span>
                 </li>
