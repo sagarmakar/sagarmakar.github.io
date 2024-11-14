@@ -29,37 +29,57 @@
             text-align: center;
         }
 
+        /* About Me, Education, Skills Section */
+        .about-me, .skills, .education, .work-experience {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .about-me h2, .skills h2, .education h2, .work-experience h2 {
+            color: #4A90E2;
+        }
+
+        .about-me p, .skills ul, .education ul, .work-experience ul {
+            line-height: 1.6;
+        }
+
         /* Contact Section Styling */
         .contact-btn {
             display: inline-flex;
             align-items: center;
-            background-color: #4A90E2; /* Button background color */
+            background-color: #4A90E2;
             color: #fff;
             padding: 12px 25px;
-            border-radius: 5px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 20px;
-            transition: all 0.3s ease; /* Smooth hover effect */
+            transition: all 0.3s ease;
+            margin-right: 15px;
+            margin-bottom: 15px;
         }
 
         .contact-btn img {
             width: 30px;
             height: 30px;
             margin-right: 10px;
-            border-radius: 50%; /* Circular icons */
-            background-color: transparent; /* Transparent background for PNG */
+            background-color: transparent;
             padding: 5px;
-            border: 2px solid #4A90E2; /* Border matching button theme */
+            border: none;
         }
 
         .contact-btn:hover {
-            background-color: #357ABD; /* Darker blue on hover */
+            background-color: #357ABD;
         }
 
         .contact-btn:hover img {
-            background-color: transparent; /* Keeps icons clean on hover */
-            border: 2px solid #357ABD; /* Hover border color */
+            border: none;
         }
 
         /* Profile Section */
@@ -68,25 +88,6 @@
             height: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
-        }
-
-        /* About Me Section */
-        .about-me {
-            text-align: left;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-me h2 {
-            color: #4A90E2;
-        }
-
-        .about-me p {
-            line-height: 1.6;
         }
 
         /* Footer Section */
@@ -114,6 +115,55 @@
             <h2>About Me</h2>
             <p>Hello, I’m Sagar Makar. I come from a strong technical background, having completed my B.Tech from NIIT University, after which I joined IBM as a cybersecurity consultant. At IBM, I gained practical experience in cybersecurity and participated in hackathons and team activities that honed my problem-solving and collaborative skills. My passion for innovative solutions and my desire to understand business and market strategy led me to pursue an MBA. Currently, as a Junior Placement Representative, I help coordinate placement activities for over 600 students, liaising with corporate leaders to strengthen our industry network.</p>
             <p>I’m driven by a commitment to continuous growth and excellence. I’m looking forward to leveraging my technical expertise, combined with business acumen, to make meaningful contributions in a leadership role, ultimately driving impactful results for my organization.</p>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Strategic Management</li>
+                <li>Consulting</li>
+                <li>Marketing & Strategy</li>
+                <li>Sales</li>
+                <li>Communication</li>
+                <li>IT & Cybersecurity</li>
+                <li>Data Science</li>
+                <li>Advanced Excel</li>
+                <li>Corporate Finance</li>
+                <li>Decision Science</li>
+            </ul>
+        </div>
+
+        <!-- Education Section -->
+        <div class="education">
+            <h2>Education</h2>
+            <ul>
+                <li><strong>M.B.A. 2026</strong> - Indian Institute of Management, Visakhapatnam</li>
+                <li><strong>B.Tech. - ECE 2022</strong> - NIIT University, Neemrana | 7.97 / 10</li>
+                <li><strong>TSBIE - 12th 2018</strong> - Vijay Ratna Junior College, Hyderabad | 90.1%</li>
+                <li><strong>CBSE - 10th 2016</strong> - Kendriya Vidyalaya Number 2 AFA, Dundigal | 9.8 / 10</li>
+            </ul>
+        </div>
+
+        <!-- Work Experience Section -->
+        <div class="work-experience">
+            <h2>Professional Experience</h2>
+            <ul>
+                <li><strong>Security Specialist - IBM</strong> (Sep 2022 - Jun 2024)
+                    <ul>
+                        <li>Awarded Hybrid Cloud Transform (HCT) - Best Asset Development Award (Q2 2023)</li>
+                        <li>Spearheaded 3 projects, communicating with international clients and delivering reports</li>
+                        <li>Developed an innovative business product solution with data analytics tools</li>
+                        <li>Worked on application security, risk identification, and mitigation across various tech stacks</li>
+                    </ul>
+                </li>
+                <li><strong>Cyber Security Intern - IBM</strong> (Jan 2022 - Jul 2022)
+                    <ul>
+                        <li>Developed a prototype for network security using DevOps tools</li>
+                        <li>Engineered product solutions to enhance network protection and automate firewall upgrades</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
 
         <!-- Contact Section -->
