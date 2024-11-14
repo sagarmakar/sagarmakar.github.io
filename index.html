@@ -3,228 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sagar Makar</title>
+    <title>Sagar Makar's Portfolio</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Basic reset and typography */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; color: #333; background-color: #f4f6f9; }
-        a { text-decoration: none; color: #357ABD; }
-        
-        /* Container */
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 20px; }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: 2em 0;
-            background: linear-gradient(135deg, #4a90e2, #357ABD);
-            color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5em;
+        /* Basic Reset and Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-        header h1 { font-size: 2em; font-weight: 700; }
-        header p { font-size: 1.1em; font-weight: 300; margin-top: 0.5em; }
-
-        /* Sections */
+        
+        body {
+            scroll-behavior: smooth;
+        }
+        
+        /* Main container styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Section styling */
         section {
-            margin-bottom: 1.5em;
-            padding: 1.5em;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        section:hover { transform: translateY(-5px); }
-        section h2 {
-            font-size: 1.5em;
-            color: #4a90e2;
-            border-bottom: 2px solid #357ABD;
-            padding-bottom: 0.2em;
-            margin-bottom: 1em;
-            display: inline-block;
-        }
-        
-        /* Skills */
-        .skills ul { list-style-type: none; display: flex; flex-wrap: wrap; gap: 0.5em; padding: 0; }
-        .skills li {
-            background: #e8f1ff;
-            color: #333;
-            padding: 0.5em 1em;
-            border-radius: 20px;
-            font-size: 0.9em;
-        }
-
-        /* Timeline */
-        .timeline ul { list-style: none; padding: 0; }
-        .timeline ul li {
+            padding: 50px 20px;
+            min-height: 100vh;
+            color: #fff;
             display: flex;
             flex-direction: column;
-            padding: 1em 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .timeline ul li:last-child { border: none; }
-        .timeline ul li h4 { font-weight: bold; color: #357ABD; margin-bottom: 0.2em; }
-        .timeline ul li p { font-size: 0.9em; color: #666; }
-
-        /* Certifications */
-        .certifications ul {
-            list-style-type: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1em;
-        }
-        .certifications li {
-            background: #e8f1ff;
-            padding: 0.5em 1em;
-            border-radius: 8px;
-            font-size: 0.9em;
+            align-items: center;
             text-align: center;
-        }
-
-        /* Contact Links */
-        .contact a {
-            display: block;
-            margin-bottom: 0.5em;
-            color: #357ABD;
-            font-size: 1em;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            color: #666;
-            font-size: 0.9em;
-            margin-top: 2em;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 { font-size: 1.8em; }
-            header p { font-size: 1em; }
-            section { padding: 1em; }
-            section h2 { font-size: 1.3em; }
-            .skills ul { flex-direction: column; gap: 0.3em; }
-            .skills li { font-size: 0.9em; padding: 0.4em 0.8em; }
         }
         
-        @media (max-width: 480px) {
-            .container { width: 95%; padding: 10px; }
-            header h1 { font-size: 1.6em; }
-            header p { font-size: 0.9em; }
-            section { padding: 0.8em; }
-            section h2 { font-size: 1.2em; }
-            .skills ul { gap: 0.2em; }
-            .skills li { font-size: 0.85em; padding: 0.4em 0.6em; }
-            .timeline ul li p { font-size: 0.85em; }
+        /* Navigation styling */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        /* About section */
+        #about {
+            background-image: url('https://via.placeholder.com/1200x800'); /* Replace with actual URL */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Skills section */
+        #skills {
+            background-image: url('https://via.placeholder.com/1200x800'); /* Replace with actual URL */
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Experience section */
+        #experience {
+            background-image: url('https://via.placeholder.com/1200x800'); /* Replace with actual URL */
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Contact section */
+        #contact {
+            background-color: #333;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- Header -->
-    <header>
-        <h1>Sagar Makar</h1>
-        <p>M.B.A. Student at Indian Institute of Management Visakhapatnam | Former Cybersecurity Consultant at IBM</p>
-    </header>
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
     <!-- About Section -->
-    <section>
-        <h2>About Me</h2>
-        <p>Hello, I’m Sagar Makar. With a CGPA of 3.38/4, I’m currently pursuing my M.B.A. at IIM Visakhapatnam, focusing on business strategy, consulting, and technology management. My technical background includes a B.Tech in Electronics & Communication Engineering from NIIT University, followed by a role at IBM as a cybersecurity consultant. There, I gained practical experience, contributed to hackathons, and built strong problem-solving skills. As a Junior Placement Representative, I manage placement activities for over 600 students and build relationships with industry leaders. My goal is to combine my technical expertise with business acumen to drive impactful solutions and innovations.</p>
+    <section id="about">
+        <div class="container">
+            <h1>Sagar Makar</h1>
+            <p>Hello! I’m Sagar Makar, a first-year MBA student at IIM Visakhapatnam with a CGPA of 3.38/4. I come from a strong technical background, having completed my B.Tech in Electronics & Communication Engineering from NIIT University. I have nearly two years of experience as a cybersecurity consultant at IBM.</p>
+            <p>I'm passionate about problem-solving, strategic workforce planning, and blending my technical expertise with business acumen to drive impactful results. As a Junior Placement Representative, I assist in coordinating placement activities and strengthening our industry network.</p>
+        </div>
     </section>
 
     <!-- Skills Section -->
-    <section class="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Strategic Management</li>
-            <li>Consulting</li>
-            <li>Marketing & Strategy</li>
-            <li>Sales</li>
-            <li>Communication</li>
-            <li>IT & Cybersecurity</li>
-            <li>Data Science</li>
-            <li>Agile Methodologies</li>
-            <li>Product Development</li>
-            <li>Advanced Excel</li>
-            <li>Corporate Finance</li>
-            <li>Financial Analysis</li>
-            <li>Decision Science</li>
-            <li>Business Analytics</li>
-        </ul>
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>Strategic Management</li>
+                <li>Consulting</li>
+                <li>Marketing & Strategy</li>
+                <li>Sales</li>
+                <li>Communication</li>
+                <li>IT & Cybersecurity</li>
+                <li>Data Science</li>
+                <li>Advanced Excel</li>
+                <li>Corporate Finance</li>
+                <li>Financial Analysis</li>
+                <li>Decision Science</li>
+                <li>Business Analytics</li>
+            </ul>
+        </div>
     </section>
 
     <!-- Experience Section -->
-    <section>
-        <h2>Professional Experience</h2>
-        <div class="timeline">
-            <ul>
-                <li>
-                    <h4>Security Specialist at IBM</h4>
-                    <p><strong>Sep 2022 - Jun 2024</strong></p>
-                    <p>Managed security solutions and mentored interns, contributing to multiple cross-functional projects globally. Led automation initiatives reducing manual effort by 10% and errors by 30%.</p>
-                </li>
-                <li>
-                    <h4>Cyber Security Intern at IBM</h4>
-                    <p><strong>Jan 2022 - Jul 2022</strong></p>
-                    <p>Developed prototypes for network security solutions and enhanced firewall automation, gaining appreciation from higher management for impactful contributions.</p>
-                </li>
-            </ul>
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <h3>Security Specialist, IBM</h3>
+            <p>Developed automation products and managed key client relations, contributing to efficient solutions and increasing productivity. Mentored new interns and received the Best Asset Development Award for product innovation.</p>
+            <h3>Cyber Security Intern, IBM</h3>
+            <p>Developed prototypes and automated firewall tracking systems. Improved network protection and received recognition from the Director of Talent Acquisition.</p>
         </div>
-    </section>
-
-    <!-- Education Section -->
-    <section>
-        <h2>Educational Qualifications</h2>
-        <div class="timeline">
-            <ul>
-                <li>
-                    <h4>M.B.A. at IIM Visakhapatnam</h4>
-                    <p><strong>2024 - 2026</strong> | CGPA: 3.38 / 4</p>
-                    <p>Pursuing a Master’s in Business Administration with a focus on business strategy and consulting.</p>
-                </li>
-                <li>
-                    <h4>B.Tech in Electronics & Communication Engineering from NIIT University</h4>
-                    <p><strong>2018 - 2022</strong> | GPA: 7.97 / 10</p>
-                    <p>Graduated with a focus on cybersecurity, which laid the foundation for my role as a Security Specialist at IBM.</p>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section class="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li>CompTIA Security+</li>
-            <li>IBM watsonx.ai Technical Sales Advanced</li>
-            <li>IBM Enterprise Design Thinking Practitioner</li>
-            <li>Data Science Methodologies (IBM)</li>
-            <li>Agile Explorer</li>
-        </ul>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
-    <h2>Contact Links</h2>
-    <a href="Sagar Makar_Master Resume (1).pdf" target="_blank">Download My Resume (PDF)</a>
-    <a href="https://www.linkedin.com/in/sagarmakar/" target="_blank">LinkedIn</a>
-    <a href="mailto:sagar.makar24-01@iimv.ac.in">Email</a>
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Links</h2>
+            <p><a href="https://www.linkedin.com/in/sagarmakar/" target="_blank">LinkedIn</a></p>
+            <p><a href="mailto:sagar.makar24-01@iimv.ac.in">Email</a></p>
+            <p><a href="Sagar_Makar_Master_Resume.pdf" target="_blank">Download My Resume (PDF)</a></p>
+        </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Sagar Makar</p>
     </footer>
-</div>
 
 </body>
 </html>
