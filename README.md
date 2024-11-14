@@ -13,4 +13,4 @@ With a foundation in Electronics & Communication Engineering and hands-on experi
 - Data Science
 
 ## Contact
-You can reach me at [LinkedIn]([https://www.linkedin.com/in/sagarmakar/]) or [GitHub](https://github.com/sagarmakar).
+You can reach me at [LinkedIn](https://www.linkedin.com/in/sagarmakar/) or [GitHub](https://github.com/sagarmakar).
