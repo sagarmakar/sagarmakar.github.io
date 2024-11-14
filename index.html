@@ -6,44 +6,35 @@
     <title>Sagar Makar's Portfolio</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        /* Basic Reset and Styling */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
-        
+
         body {
-            scroll-behavior: smooth;
             background-color: #f4f4f9;
             color: #333;
+            padding-top: 60px; /* Space for fixed navigation bar */
+            font-size: 18px;
         }
-        
-        /* Main container styling */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Navigation styling */
+
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
             padding: 15px;
             z-index: 1000;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 20px;
             font-weight: bold;
             font-size: 18px;
         }
@@ -52,66 +43,53 @@
             text-decoration: underline;
         }
 
-        /* Section styling */
         section {
             padding: 50px 20px;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             text-align: center;
+            margin-bottom: 50px;
         }
 
-        /* About Section */
         #about {
-            background-image: url('https://via.placeholder.com/1200x800'); /* Replace with actual URL */
-            background-size: cover;
-            background-position: center;
+            background-color: #4A90E2;
             color: white;
         }
 
-        /* Skills Section */
-        #skills {
-            background-color: #efefef;
+        #skills, #experience {
+            background-color: #E6E6E6;
         }
-        
-        /* Experience Section */
-        #experience {
-            background-color: #f8f8f8;
-        }
-        
-        /* Contact Section */
+
         #contact {
             background-color: #333;
             color: white;
         }
 
-        /* Footer Styling */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #222;
-            color: #fff;
-        }
-
-        /* Profile Image */
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
+            border: 5px solid white;
             margin-bottom: 20px;
-            border: 5px solid #fff;
         }
 
-        /* About Me text styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: left;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+        }
+
         .about-text {
             max-width: 900px;
             margin: 0 auto;
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 20px;
+            line-height: 1.8;
         }
 
-        /* Skills list styling */
         ul {
             list-style: none;
             padding: 0;
@@ -122,7 +100,6 @@
             margin: 10px 0;
         }
 
-        /* Resume Download Button */
         .btn {
             display: inline-block;
             background-color: #007bff;
@@ -136,6 +113,47 @@
 
         .btn:hover {
             background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Scrollable sections */
+        #about, #skills, #experience {
+            overflow: auto;
+            max-height: 600px; /* This makes sections scrollable if too large */
+        }
+        
+        /* Responsive design for mobile */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
+
+            .about-text {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
         }
 
     </style>
@@ -155,8 +173,12 @@
         <div class="container">
             <img src="Sagar_Makar_2410323.jpeg" alt="Sagar Makar" class="profile-img">
             <h1>Sagar Makar</h1>
-            <p class="about-text">Hello! I’m Sagar Makar, a first-year MBA student at IIM Visakhapatnam with a CGPA of 3.38/4. I come from a strong technical background, having completed my B.Tech in Electronics & Communication Engineering from NIIT University. I have nearly two years of experience as a cybersecurity consultant at IBM.</p>
-            <p class="about-text">I'm passionate about problem-solving, strategic workforce planning, and blending my technical expertise with business acumen to drive impactful results. As a Junior Placement Representative, I assist in coordinating placement activities and strengthening our industry network.</p>
+            <p class="about-text">
+                Hello! I’m Sagar Makar, a first-year MBA student at IIM Visakhapatnam with a CGPA of 3.38/4. I come from a strong technical background, having completed my B.Tech in Electronics & Communication Engineering from NIIT University. I have nearly two years of experience as a cybersecurity consultant at IBM.
+            </p>
+            <p class="about-text">
+                I'm passionate about problem-solving, strategic workforce planning, and blending my technical expertise with business acumen to drive impactful results. As a Junior Placement Representative, I assist in coordinating placement activities and strengthening our industry network.
+            </p>
         </div>
     </section>
 
