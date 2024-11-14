@@ -19,20 +19,20 @@
         /* Header */
         header {
             text-align: center;
-            padding: 3em 0;
+            padding: 2em 0;
             background: linear-gradient(135deg, #4a90e2, #357ABD);
             color: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2em;
+            margin-bottom: 1.5em;
         }
-        header h1 { font-size: 2.5em; font-weight: 700; }
-        header p { font-size: 1.2em; font-weight: 300; margin-top: 0.5em; }
+        header h1 { font-size: 2em; font-weight: 700; }
+        header p { font-size: 1.1em; font-weight: 300; margin-top: 0.5em; }
 
         /* Sections */
         section {
-            margin-bottom: 2em;
-            padding: 2em;
+            margin-bottom: 1.5em;
+            padding: 1.5em;
             background: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -40,7 +40,7 @@
         }
         section:hover { transform: translateY(-5px); }
         section h2 {
-            font-size: 1.8em;
+            font-size: 1.5em;
             color: #4a90e2;
             border-bottom: 2px solid #357ABD;
             padding-bottom: 0.2em;
@@ -49,25 +49,34 @@
         }
         
         /* Skills */
-        .skills ul { list-style-type: none; display: flex; flex-wrap: wrap; gap: 0.5em; }
+        .skills ul { list-style-type: none; display: flex; flex-wrap: wrap; gap: 0.5em; padding: 0; }
         .skills li {
             background: #e8f1ff;
             color: #333;
-            padding: 0.6em 1.2em;
+            padding: 0.5em 1em;
             border-radius: 20px;
-            font-size: 1em;
+            font-size: 0.9em;
         }
 
         /* Timeline */
         .timeline ul { list-style: none; padding: 0; }
         .timeline ul li {
             display: flex;
+            flex-direction: column;
             padding: 1em 0;
             border-bottom: 1px solid #e0e0e0;
         }
         .timeline ul li:last-child { border: none; }
         .timeline ul li h4 { font-weight: bold; color: #357ABD; margin-bottom: 0.2em; }
         .timeline ul li p { font-size: 0.9em; color: #666; }
+
+        /* Contact Links */
+        .contact a {
+            display: block;
+            margin-bottom: 0.5em;
+            color: #357ABD;
+            font-size: 1em;
+        }
 
         /* Footer */
         footer {
@@ -76,6 +85,27 @@
             color: #666;
             font-size: 0.9em;
             margin-top: 2em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            header p { font-size: 1em; }
+            section { padding: 1em; }
+            section h2 { font-size: 1.3em; }
+            .skills ul { flex-direction: column; gap: 0.3em; }
+            .skills li { font-size: 0.9em; padding: 0.4em 0.8em; }
+        }
+        
+        @media (max-width: 480px) {
+            .container { width: 95%; padding: 10px; }
+            header h1 { font-size: 1.6em; }
+            header p { font-size: 0.9em; }
+            section { padding: 0.8em; }
+            section h2 { font-size: 1.2em; }
+            .skills ul { gap: 0.2em; }
+            .skills li { font-size: 0.85em; padding: 0.4em 0.6em; }
+            .timeline ul li p { font-size: 0.85em; }
         }
     </style>
 </head>
@@ -161,17 +191,8 @@
     </section>
 
     <!-- Contact Section -->
-    <section>
+    <section class="contact">
         <h2>Contact</h2>
-        <p>Feel free to connect with me on <a href="https://www.linkedin.com/in/sagarmakar/" target="_blank">LinkedIn</a> or view my projects on <a href="https://github.com/sagarmakar" target="_blank">GitHub</a>.</p>
-        <p>Email: <a href="mailto:sagar.makar24-01@iimv.ac.in">sagar.makar24-01@iimv.ac.in</a></p>
-    </section>
-</div>
-
-<!-- Footer -->
-<footer>
-    <p>&copy; 2024 Sagar Makar. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
+        <a href="https://www.linkedin.com/in/sagarmakar/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sagarmakar" target="_blank">GitHub</a>
+        <p>Email: <a href="mailto:sagar.makar24-01@iimv.ac.in">sagar.makar24-01@iimv.ac.in
