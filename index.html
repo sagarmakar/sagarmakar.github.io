@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sagar Makar - Portfolio</title>
     
-    <!-- Corrected Favicon Link -->
-    <link rel="icon" href="favicon.png" type="image/png"> <!-- Make sure favicon.png is in the same folder or specify the path -->
+    <link rel="icon" href="favicon.png" type="image/png">
 
     <style>
         /* General Styling */
@@ -118,6 +117,29 @@
             margin-left: 10px;
         }
 
+        /* Work Experience Styling */
+        .work-experience ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .work-experience li {
+            margin: 12px 0; /* Added margin for spacing between items */
+            font-size: 16px;
+        }
+
+        .work-experience .work-period {
+            text-align: right;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .work-experience .work-duration {
+            font-size: 14px;
+            color: #666;
+            margin-left: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -169,7 +191,8 @@
         <div class="work-experience">
             <h2>Professional Experience</h2>
             <ul>
-                <li><strong>Security Specialist - IBM</strong> (Sep 2022 - Jun 2024)
+                <li><strong>Security Specialist - IBM</strong>
+                    <div class="work-period">Sep 2022 - Jun 2024 <span class="work-duration">(21 months)</span></div>
                     <ul>
                         <li>Awarded Hybrid Cloud Transform (HCT) - Best Asset Development Award (Q2 2023)</li>
                         <li>Spearheaded 3 projects, communicating with international clients and delivering reports</li>
@@ -177,8 +200,9 @@
                         <li>Worked on application security, risk identification, and mitigation across various tech stacks</li>
                     </ul>
                 </li>
-                <li></li>
-                <li><strong>Cyber Security Intern - IBM</strong> (Jan 2022 - Jul 2022)
+
+                <li><strong>Cyber Security Intern - IBM</strong>
+                    <div class="work-period">Jan 2022 - Jul 2022 <span class="work-duration">(7 months)</span></div>
                     <ul>
                         <li>Developed a prototype for network security using DevOps tools</li>
                         <li>Engineered product solutions to enhance network protection and automate firewall upgrades</li>
