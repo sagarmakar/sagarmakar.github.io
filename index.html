@@ -48,6 +48,7 @@
             min-height: 100vh;
             text-align: center;
             margin-bottom: 50px;
+            background-color: #fff;
         }
 
         #about {
@@ -100,8 +101,9 @@
             margin: 10px 0;
         }
 
-        .btn {
-            display: inline-block;
+        .btn, .contact-btn {
+            display: inline-flex;
+            align-items: center;
             background-color: #007bff;
             color: #fff;
             padding: 12px 25px;
@@ -111,7 +113,13 @@
             margin-top: 20px;
         }
 
-        .btn:hover {
+        .contact-btn img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .contact-btn:hover {
             background-color: #0056b3;
         }
 
@@ -125,12 +133,26 @@
             width: 100%;
         }
 
-        /* Scrollable sections */
-        #about, #skills, #experience {
-            overflow: auto;
-            max-height: 600px; /* This makes sections scrollable if too large */
+        /* Align icons with text in contact section */
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        
+
+        .contact-section a {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        /* Remove the fixed height to make it continuous */
+        #about, #skills, #experience {
+            margin-bottom: 0;
+            padding-bottom: 30px;
+        }
+
         /* Responsive design for mobile */
         @media (max-width: 768px) {
             nav {
@@ -153,6 +175,15 @@
             .profile-img {
                 width: 120px;
                 height: 120px;
+            }
+
+            .contact-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-btn {
+                padding: 12px 20px;
             }
         }
 
@@ -216,11 +247,16 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <div class="container">
-            <h2>Contact Links</h2>
-            <p><a href="https://www.linkedin.com/in/sagarmakar/" target="_blank" style="color: #fff;">LinkedIn</a></p>
-            <p><a href="mailto:sagar.makar24-01@iimv.ac.in" style="color: #fff;">Email</a></p>
-            <p><a href="Sagar Makar_Master Resume (1).pdf" target="_blank" class="btn">Download My Resume (PDF)</a></p>
+        <div class="container contact-section">
+            <a href="https://www.linkedin.com/in/sagarmakar/" target="_blank" class="contact-btn">
+                <img src="linkedin.webp" alt="LinkedIn"> LinkedIn
+            </a>
+            <a href="mailto:sagar.makar24-01@iimv.ac.in" class="contact-btn">
+                <img src="email.png" alt="Email"> Email
+            </a>
+            <a href="Sagar Makar_Master Resume (1).pdf" target="_blank" class="contact-btn">
+                <img src="resume.jpg" alt="Resume"> Download My Resume
+            </a>
         </div>
     </section>
 
