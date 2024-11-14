@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sagar Makar - Portfolio</title>
+    
+    <!-- Favicon Link -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon added -->
+
     <style>
         /* General Styling */
         body {
@@ -12,15 +16,6 @@
             padding: 0;
             background-color: #f4f4f4;
             color: #333;
-        }
-
-        /* Top Navigation Bar */
-        header {
-            background-color: #4A90E2;
-            padding: 10px;
-            text-align: center;
-            color: white;
-            font-size: 24px;
         }
 
         /* Main Content Section */
@@ -72,6 +67,7 @@
             background-color: transparent;
             padding: 5px;
             border: none;
+            filter: invert(1); /* Ensures icon matches button color */
         }
 
         .contact-btn:hover {
@@ -80,6 +76,7 @@
 
         .contact-btn:hover img {
             border: none;
+            filter: invert(1); /* Ensures icon stays consistent on hover */
         }
 
         /* Profile Section */
@@ -98,13 +95,35 @@
             padding: 10px;
             margin-top: 40px;
         }
+
+        /* Education Styling */
+        .education ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .education li {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            align-items: center;
+        }
+
+        .education li strong {
+            flex: 1;
+        }
+
+        .education .year {
+            font-weight: 400;
+            color: #666;
+        }
+
+        .education .marks {
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-
-    <header>
-        Sagar Makar - Portfolio
-    </header>
 
     <div class="content">
         <!-- Profile Image -->
@@ -138,10 +157,14 @@
         <div class="education">
             <h2>Education</h2>
             <ul>
-                <li><strong>M.B.A. 2026</strong> - Indian Institute of Management, Visakhapatnam</li>
-                <li><strong>B.Tech. - ECE 2022</strong> - NIIT University, Neemrana | 7.97 / 10</li>
-                <li><strong>TSBIE - 12th 2018</strong> - Vijay Ratna Junior College, Hyderabad | 90.1%</li>
-                <li><strong>CBSE - 10th 2016</strong> - Kendriya Vidyalaya Number 2 AFA, Dundigal | 9.8 / 10</li>
+                <li><strong>M.B.A. - Indian Institute of Management, Visakhapatnam</strong>
+                    <span class="marks">CGPA: 3.38 / 4</span>
+                    <span class="year">(2026)</span>
+                </li>
+                <li><strong>B.Tech. - ECE, NIIT University</strong>
+                    <span class="marks">7.97 / 10</span>
+                    <span class="year">(2022)</span>
+                </li>
             </ul>
         </div>
 
