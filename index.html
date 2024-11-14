@@ -4,97 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sagar Makar - Personal Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f7fa;
-        }
+        /* Basic reset and typography */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Roboto', sans-serif; color: #333; background-color: #f4f6f9; }
+        a { text-decoration: none; color: #357ABD; }
+        
         /* Container */
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2em;
-        }
-        /* Header Styling */
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+        /* Header */
         header {
             text-align: center;
-            padding: 2em 0;
-            background-color: #4a90e2;
-            color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 3em 0;
+            background: linear-gradient(135deg, #4a90e2, #357ABD);
+            color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2em;
         }
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.2em;
-        }
-        header p {
-            font-size: 1.1em;
-            font-weight: 300;
-        }
-        /* Section Styling */
+        header h1 { font-size: 2.5em; font-weight: 700; }
+        header p { font-size: 1.2em; font-weight: 300; margin-top: 0.5em; }
+
+        /* Sections */
         section {
-            margin: 2em 0;
-            padding: 1.5em;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2em;
+            padding: 2em;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
         }
+        section:hover { transform: translateY(-5px); }
         section h2 {
             font-size: 1.8em;
-            margin-bottom: 0.5em;
             color: #4a90e2;
-        }
-        /* Skills List */
-        .skills ul {
-            list-style-type: none;
-        }
-        .skills li {
+            border-bottom: 2px solid #357ABD;
+            padding-bottom: 0.2em;
+            margin-bottom: 1em;
             display: inline-block;
+        }
+        
+        /* Skills */
+        .skills ul { list-style-type: none; display: flex; flex-wrap: wrap; gap: 0.5em; }
+        .skills li {
             background: #e8f1ff;
             color: #333;
-            padding: 0.5em 1em;
-            margin: 0.3em;
+            padding: 0.6em 1.2em;
             border-radius: 20px;
-            font-size: 0.9em;
-        }
-        /* Contact Links */
-        .contact p {
             font-size: 1em;
         }
-        .contact a {
-            color: #4a90e2;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
+
+        /* Timeline */
+        .timeline ul { list-style: none; padding: 0; }
+        .timeline ul li {
+            display: flex;
+            padding: 1em 0;
+            border-bottom: 1px solid #e0e0e0;
         }
-        .contact a:hover {
-            color: #2a5d99;
+        .timeline ul li:last-child { border: none; }
+        .timeline ul li h4 { font-weight: bold; color: #357ABD; margin-bottom: 0.2em; }
+        .timeline ul li p { font-size: 0.9em; color: #666; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 2em;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <!-- Header -->
     <header>
         <h1>Sagar Makar</h1>
-        <p>Welcome to my personal portfolio! I’m a first-year M.B.A. student at the Indian Institute of Management Visakhapatnam (IIM-V) and have around 2 years of experience as a Security Specialist at IBM.</p>
+        <p>M.B.A. Student at Indian Institute of Management Visakhapatnam | Former Cybersecurity Consultant at IBM</p>
     </header>
 
+    <!-- About Section -->
     <section>
         <h2>About Me</h2>
-        <p>I have a foundation in Electronics & Communication Engineering and hands-on experience in cybersecurity. I've developed skills in cloud computing, low-code platforms, technology communities, and strategic workforce planning. I’m currently honing my expertise in business management and consulting while actively serving as a Junior Placement Representative, selected from a pool of 340+ students.</p>
+        <p>Hello, I’m Sagar Makar. I come from a strong technical background, having completed my B.Tech from NIIT University, and then joined IBM as a cybersecurity consultant. There, I gained hands-on experience in cybersecurity, participated in hackathons, and honed my problem-solving skills. Currently, as a Junior Placement Representative at IIM Visakhapatnam, I coordinate placement activities for over 600 students, connecting with industry leaders to strengthen our network.</p>
     </section>
 
+    <!-- Skills Section -->
     <section class="skills">
         <h2>Skills</h2>
         <ul>
@@ -105,14 +105,73 @@
             <li>Communication</li>
             <li>IT & Cybersecurity</li>
             <li>Data Science</li>
+            <li>Agile Methodologies</li>
+            <li>Product Development</li>
         </ul>
     </section>
 
-    <section class="contact">
+    <!-- Experience Section -->
+    <section>
+        <h2>Professional Experience</h2>
+        <div class="timeline">
+            <ul>
+                <li>
+                    <h4>Security Specialist at IBM</h4>
+                    <p><strong>Sep 2022 - Jun 2024</strong></p>
+                    <p>Managed security solutions and mentored interns, contributing to multiple cross-functional projects globally. Led automation initiatives reducing manual effort by 10% and errors by 30%.</p>
+                </li>
+                <li>
+                    <h4>Cyber Security Intern at IBM</h4>
+                    <p><strong>Jan 2022 - Jul 2022</strong></p>
+                    <p>Developed prototypes for network security solutions and enhanced firewall automation, gaining appreciation from higher management for impactful contributions.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section>
+        <h2>Educational Qualifications</h2>
+        <div class="timeline">
+            <ul>
+                <li>
+                    <h4>M.B.A. at IIM Visakhapatnam</h4>
+                    <p><strong>2024 - 2026</strong></p>
+                    <p>Pursuing a Master’s in Business Administration to deepen my understanding of business strategy and consulting.</p>
+                </li>
+                <li>
+                    <h4>B.Tech in Electronics & Communication Engineering from NIIT University</h4>
+                    <p><strong>2018 - 2022</strong> | GPA: 7.97 / 10</p>
+                    <p>Graduated with a focus on cybersecurity, which laid the foundation for my role as a Security Specialist at IBM.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section>
+        <h2>Certifications</h2>
+        <ul>
+            <li>CompTIA Security+ - Cybersecurity Essentials</li>
+            <li>IBM Watsonx.ai Sales Advanced</li>
+            <li>Enterprise Design Thinking by IBM</li>
+            <li>Data Science Methodologies by IBM</li>
+            <li>Agile Explorer - Product Development & Agile Methodologies</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section>
         <h2>Contact</h2>
-        <p>Feel free to connect with me on <a href="https://www.linkedin.com/in/sagarmakar/" target="_blank">LinkedIn</a> or explore my work on <a href="https://github.com/sagarmakar" target="_blank">GitHub</a>.</p>
+        <p>Feel free to connect with me on <a href="https://www.linkedin.com/in/sagarmakar/" target="_blank">LinkedIn</a> or view my projects on <a href="https://github.com/sagarmakar" target="_blank">GitHub</a>.</p>
+        <p>Email: <a href="mailto:sagar.makar24-01@iimv.ac.in">sagar.makar24-01@iimv.ac.in</a></p>
     </section>
 </div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Sagar Makar. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
