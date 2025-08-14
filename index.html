@@ -1,30 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sagar Makar's bold portfolio showcasing MBA candidacy, cybersecurity expertise, and strategic leadership.">
     <title>Sagar Makar - Portfolio</title>
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="./favicon.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.22.10/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.24.7/babel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/framer-motion@11.3.28/dist/framer-motion.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.10/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            color: #fff;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
         #root {
             min-height: 100vh;
+            position: relative;
         }
         .error-fallback {
-            text-align: center;
-            padding: 50px;
-            color: #ff0000;
+            display: none;
+        }
+        .glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .neon-btn {
+            background: linear-gradient(45deg, #ff007a, #00ddeb);
+            box-shadow: 0 0 15px rgba(255, 0, 122, 0.5);
+        }
+        .section-bg {
+            background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(44,62,80,0.9));
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
     </style>
 </head>
@@ -35,28 +61,39 @@
     </div>
 
     <script type="text/babel">
+        console.log("Babel script running");
         const { motion } = window.FramerMotion;
 
         // Navigation Component
         const Navbar = () => (
             <motion.nav 
-                initial={{ y: -100 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="fixed top-0 w-full bg-gradient-to-r from-blue-700 to-indigo-700 text-white shadow-lg z-50"
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="fixed top-0 w-full glass text-white shadow-lg z-50"
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16 items-center">
-                        <div className="text-2xl font-bold">Sagar Makar</div>
+                        <motion.div 
+                            className="text-3xl font-bold glow"
+                            whileHover={{ scale: 1.1 }}
+                            style={{ fontFamily: 'Montserrat' }}
+                        >
+                            Sagar Makar
+                        </motion.div>
                         <div className="space-x-4">
-                            <a href="#about" className="hover:text-blue-200 transition">About</a>
-                            <a href="#skills" className="hover:text-blue-200 transition">Skills</a>
-                            <a href="#education" className="hover:text-blue-200 transition">Education</a>
-                            <a href="#experience" className="hover:text-blue-200 transition">Experience</a>
-                            <a href="#certifications" className="hover:text-blue-200 transition">Certifications</a>
-                            <a href="#responsibilities" className="hover:text-blue-200 transition">Responsibilities</a>
-                            <a href="#extracurricular" className="hover:text-blue-200 transition">Extracurricular</a>
-                            <a href="#contact" className="hover:text-blue-200 transition">Contact</a>
+                            {["about", "skills", "contact"].map(section => (
+                                <motion.a 
+                                    key={section}
+                                    href={`#${section}`} 
+                                    className="text-lg hover:text-cyan-400 transition glow"
+                                    whileHover={{ scale: 1.1, rotate: 3 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    aria-label={`Navigate to ${section} section`}
+                                >
+                                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                                </motion.a>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -66,26 +103,45 @@
         // Hero Section
         const Hero = () => (
             <motion.section 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
-                className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="min-h-screen flex items-center justify-center section-bg pt-16 relative"
             >
-                <div className="text-center">
+                <div id="particles-js"></div>
+                <div className="text-center relative z-10">
                     <motion.img 
-                        src="Sagar_Makar_2410323.jpeg" 
-                        alt="Profile" 
-                        className="w-40 h-40 rounded-full mx-auto mb-6 shadow-xl border-4 border-white"
-                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        src="./Sagar_Makar_2410323.jpeg" 
+                        alt="Sagar Makar's profile picture" 
+                        className="w-48 h-48 rounded-full mx-auto mb-8 shadow-2xl border-4 border-cyan-400"
+                        whileHover={{ scale: 1.15, rotate: 10, boxShadow: "0 0 20px rgba(0, 221, 235, 0.7)" }}
+                        transition={{ duration: 0.3 }}
                         onError={(e) => e.target.src = 'https://via.placeholder.com/150'}
                     />
-                    <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-800">Sagar Makar</h1>
-                    <p className="text-xl sm:text-2xl text-gray-600 mt-3">MBA Candidate | Cybersecurity Expert | Strategic Leader</p>
+                    <motion.h1 
+                        className="text-5xl sm:text-7xl font-extrabold glow"
+                        style={{ fontFamily: 'Montserrat' }}
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.2, duration: 0.8 }}
+                    >
+                        Sagar Makar
+                    </motion.h1>
+                    <motion.p 
+                        className="text-xl sm:text-2xl text-gray-300 mt-4"
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                    >
+                        MBA Candidate | Cybersecurity Expert | Strategic Leader
+                    </motion.p>
                     <motion.a 
                         href="#contact" 
-                        className="mt-8 inline-block bg-blue-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-800 transition shadow-md"
-                        whileHover={{ scale: 1.05 }}
+                        className="mt-8 inline-block neon-btn text-white px-10 py-4 rounded-full font-semibold text-lg shadow-lg"
+                        whileHover={{ scale: 1.1, boxShadow: "0 0 25px rgba(0, 221, 235, 0.9)" }}
                         whileTap={{ scale: 0.95 }}
+                        transition={{ duration: 0.3 }}
+                        aria-label="Connect with Sagar Makar"
                     >
                         Connect with Me
                     </motion.a>
@@ -97,16 +153,24 @@
         const About = () => (
             <motion.section 
                 id="about" 
-                className="py-20 bg-white"
-                initial={{ opacity: 0, y: 50 }}
+                className="py-20 section-bg"
+                initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true }}
             >
                 <div className="max-w-5xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-blue-700 mb-6">About Me</h2>
-                    <p className="text-lg text-gray-700 leading-relaxed">
-                        I'm Sagar Makar, an MBA candidate at IIM Visakhapatnam with a B.Tech in ECE from NIIT University. With 21 months as a Security Specialist at IBM, I boosted operational efficiency by 20% through automation and led global client projects. My internship at LiquidMind.AI saw 5.3x audience growth and 60+ qualified leads in a week. Passionate about blending technical expertise with strategic business acumen, I serve as a Junior Placement Representative, managing corporate relations for 700+ students. My goal is to drive impactful results in leadership roles through innovation and collaboration.
+                    <motion.h2 
+                        className="text-5xl font-bold text-cyan-400 glow mb-6"
+                        style={{ fontFamily: 'Montserrat' }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        About Me
+                    </motion.h2>
+                    <p className="text-lg text-gray-300 leading-relaxed">
+                        I'm Sagar Makar, an MBA candidate at IIM Visakhapatnam with a B.Tech in ECE from NIIT University. With 21 months as a Security Specialist at IBM, I boosted operational efficiency by 20% through automation and led global client projects. Passionate about blending tech and strategy, I’m here to make waves in leadership roles.
                     </p>
                 </div>
             </motion.section>
@@ -116,24 +180,32 @@
         const Skills = () => (
             <motion.section 
                 id="skills" 
-                className="py-20 bg-gray-100"
-                initial={{ opacity: 0, y: 50 }}
+                className="py-20 bg-gradient-to-b from-gray-900 to-black"
+                initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true }}
             >
                 <div className="max-w-5xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-blue-700 mb-6">Skills</h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <motion.h2 
+                        className="text-5xl font-bold text-cyan-400 glow mb-6"
+                        style={{ fontFamily: 'Montserrat' }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        Skills
+                    </motion.h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
                         {[
-                            "Strategic Management", "Consulting", "Marketing & Strategy", "Sales",
-                            "Communication", "IT & Cybersecurity", "Data Science", "Advanced Excel",
-                            "Corporate Finance", "Decision Science", "Agile Methodologies", "DevOps"
+                            "Strategic Management", "Cybersecurity", "Data Science", "Consulting",
+                            "Marketing & Strategy", "DevOps", "Agile Methodologies", "Corporate Finance"
                         ].map(skill => (
                             <motion.div 
                                 key={skill} 
-                                className="bg-white p-4 rounded-lg shadow-md text-center text-gray-800 font-semibold"
-                                whileHover={{ scale: 1.05, boxShadow: "0 4px 20px rgba(0,0,0,0.1)" }}
+                                className="glass p-4 rounded-lg text-center text-white font-semibold"
+                                whileHover={{ scale: 1.1, boxShadow: "0 0 20px rgba(0, 221, 235, 0.5)" }}
+                                transition={{ duration: 0.3 }}
                             >
                                 {skill}
                             </motion.div>
@@ -143,242 +215,57 @@
             </motion.section>
         );
 
-        // Education Section
-        const Education = () => (
-            <motion.section 
-                id="education" 
-                className="py-20 bg-white"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-            >
-                <div className="max-w-5xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-blue-700 mb-6">Education</h2>
-                    <ul className="space-y-6">
-                        <li className="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">M.B.A. - Indian Institute of Management, Visakhapatnam</strong>
-                            <div className="text-right">
-                                <span className="font-bold">3.32 / 4</span>
-                                <span className="text-gray-600 ml-2">(2026)</span>
-                            </div>
-                        </li>
-                        <li className="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">B.Tech. (ECE) - NIIT University, Alwar</strong>
-                            <div className="text-right">
-                                <span className="font-bold">7.97 / 10</span>
-                                <span className="text-gray-600 ml-2">(2022)</span>
-                            </div>
-                        </li>
-                        <li className="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">TSBIE - 12th - Vijay Ratna Jr. College, Hyderabad</strong>
-                            <div className="text-right">
-                                <span className="font-bold">90.1 / 100</span>
-                                <span className="text-gray-600 ml-2">(2018)</span>
-                            </div>
-                        </li>
-                        <li className="flex justify-between items-center bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">CBSE - 10th - Kendriya Vidyalaya No. 2, AFA Dundigal</strong>
-                            <div className="text-right">
-                                <span className="font-bold">9.8 / 10</span>
-                                <span className="text-gray-600 ml-2">(2016)</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </motion.section>
-        );
-
-        // Experience Section
-        const Experience = () => (
-            <motion.section 
-                id="experience" 
-                className="py-20 bg-gray-100"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-            >
-                <div className="max-w-5xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-blue-700 mb-6">Professional Experience</h2>
-                    <ul className="space-y-8">
-                        <li className="bg-white p-6 rounded-lg shadow-md">
-                            <div className="flex justify-between items-center">
-                                <strong className="text-lg">Security Specialist - IBM</strong>
-                                <span className="text-gray-600">Sep 2022 - Jun 2024 (21 months)</span>
-                            </div>
-                            <ul className="list-disc pl-5 mt-3 text-gray-700">
-                                <li>Awarded Best Asset (Q2 2023) for 20% operational efficiency boost via automation solutions.</li>
-                                <li>Led 3 end-to-end projects, managing 10+ team members and global client communications.</li>
-                                <li>Reduced manual tasks by 10% and errors by 30% through innovative product development.</li>
-                                <li>Built DevOps-based InfraSec tool, improving response speed by 50%.</li>
-                                <li>Mentored 5 interns to 100% full-time conversion, leading training and performance reviews.</li>
-                            </ul>
-                        </li>
-                        <li className="bg-white p-6 rounded-lg shadow-md">
-                            <div className="flex justify-between items-center">
-                                <strong className="text-lg">Management Intern - LiquidMind.AI</strong>
-                                <span className="text-gray-600">Apr 2025 - May 2025 (2 months)</span>
-                            </div>
-                            <ul className="list-disc pl-5 MandelaClassName="text-lg">Education</strong>
-                                <ul className="list-disc pl-5 mt-3 text-gray-700">
-                                    <li>Drove 5.3x audience growth and 7x traffic surge via MetaSuite community expansion.</li>
-                                    <li>Generated 60+ qualified leads in Week 1 through targeted outreach in key sectors.</li>
-                                    <li>Authored 11+ articles on finance and strategy, enhancing thought leadership.</li>
-                                    <li>Aligned 5+ firms and 1 council for capital and resource optimization.</li>
-                                    <li>Developed 2 GTM strategies for new market entry, integrating acquisition and partnerships.</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li className="bg-white p-6 rounded-lg shadow-md">
-                            <div className="flex justify-between items-center">
-                                <strong className="text-lg">Cyber Security Intern - IBM</strong>
-                                <span className="text-gray-600">Jan 2022 - Jul 2022 (7 months)</span>
-                            </div>
-                            <ul className="list-disc pl-5 mt-3 text-gray-700">
-                                <li>Developed a prototype for scalable network security using DevOps tools.</li>
-                                <li>Delivered data-driven reports to support stakeholder decisions across finance functions.</li>
-                                <li>Commended by Talent Acquisition Director for innovative product solutions.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </motion.section>
-        );
-
-        // Certifications Section
-        const Certifications = () => (
-            <motion.section 
-                id="certifications" 
-                className="py-20 bg-white"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-            >
-                <div className="max-w-5xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-blue-700 mb-6">Certifications</h2>
-                    <ul className="space-y-4">
-                        <li className="bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">Sales Advanced - WatsonX Badge</strong>
-                            <p className="text-gray-700">Earned for AI and management skills; delivered client-facing Proof of Value engagements.</p>
-                        </li>
-                        <li className="bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">IBM Data Science</strong>
-                            <p className="text-gray-700">Recognized for applying data science principles in analysis, research, and model building.</p>
-                        </li>
-                        <li className="bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">Enterprise Design Thinking</strong>
-                            <p className="text-gray-700">Certified for applying design frameworks to identify innovation opportunities.</p>
-                        </li>
-                        <li className="bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">IBM Agile Explorer</strong>
-                            <p className="text-gray-700">Recognized for proficiency in Agile frameworks and adaptive development strategies.</p>
-                        </li>
-                    </ul>
-                </div>
-            </motion.section>
-        );
-
-        // Positions of Responsibility Section
-        const Responsibilities = () => (
-            <motion.section 
-                id="responsibilities" 
-                className="py-20 bg-gray-100"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-            >
-                <div className="max-w-5xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-blue-700 mb-6">Positions of Responsibility</h2>
-                    <ul className="space-y-6">
-                        <li className="bg-white p-6 rounded-lg shadow-md">
-                            <strong className="text-lg">Junior Placement Representative - IIM Visakhapatnam</strong>
-                            <ul className="list-disc pl-5 mt-3 text-gray-700">
-                                <li>Selected among 7% of 344 students to lead corporate relations and placement activities.</li>
-                                <li>Managed 13 placement drives for 700+ PGP candidates, ensuring smooth campus-recruiter engagement.</li>
-                            </ul>
-                        </li>
-                        <li className="bg-white p-6 rounded-lg shadow-md">
-                            <strong className="text-lg">Club Coordinator - IIM Visakhapatnam</strong>
-                            <ul className="list-disc pl-5 mt-3 text-gray-700">
-                                <li>Appointed in Year 2 to manage scheduling and execution of institute-wide events.</li>
-                                <li>Oversaw logistics and ₹5L+ resource allocation for multiple campus events.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </motion.section>
-        );
-
-        // Extra-Curricular Activities Section
-        const Extracurricular = () => (
-            <motion.section 
-                id="extracurricular" 
-                className="py-20 bg-white"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-            >
-                <div className="max-w-5xl mx-auto px-4">
-                    <h2 className="text-4xl font-bold text-blue-700 mb-6">Extra-Curricular Activities</h2>
-                    <ul className="space-y-4">
-                        <li className="bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">Competitions</strong>
-                            <p className="text-gray-700">Achieved 1st and 3rd place in 4 national case competitions by IIMs and elite B-Schools.</p>
-                        </li>
-                        <li className="bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">Student Mentor</strong>
-                            <p className="text-gray-700">Nominated among 8 from 240 peers to lead and mentor juniors in academic and co-curricular activities.</p>
-                        </li>
-                        <li className="bg-gray-50 p-4 rounded-lg">
-                            <strong className="text-lg">National Children’s Science Congress</strong>
-                            <p className="text-gray-700">Led a 5-member team representing at the intra-regional level.</p>
-                        </li>
-                    </ul>
-                </div>
-            </motion.section>
-        );
-
         // Contact Section
         const Contact = () => (
             <motion.section 
                 id="contact" 
-                className="py-20 bg-gray-100"
-                initial={{ opacity: 0, y: 50 }}
+                className="py-20 section-bg"
+                initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 1, ease: "easeOut" }}
                 viewport={{ once: true }}
             >
                 <div className="max-w-5xl mx-auto px-4 text-center">
-                    <h2 className="text-4xl font-bold text-blue-700 mb-6">Contact Me</h2>
+                    <motion.h2 
+                        className="text-5xl font-bold text-cyan-400 glow mb-6"
+                        style={{ fontFamily: 'Montserrat' }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        Contact Me
+                    </motion.h2>
                     <div className="flex flex-wrap justify-center space-x-4">
                         <motion.a 
                             href="https://www.linkedin.com/in/sagarmakar/" 
                             target="_blank" 
-                            className="flex items-center bg-blue-700 text-white px-6 py-3 rounded-full hover:bg-blue-800 transition shadow-md mb-4"
-                            whileHover={{ scale: 1.05 }}
+                            className="flex items-center neon-btn text-white px-6 py-3 rounded-full font-semibold mb-4"
+                            whileHover={{ scale: 1.1, boxShadow: "0 0 25px rgba(0, 221, 235, 0.9)" }}
+                            transition={{ duration: 0.3 }}
+                            aria-label="Visit Sagar Makar's LinkedIn profile"
                         >
-                            <img src="linkedin.png" alt="LinkedIn" className="w-6 h-6 mr-2 rounded-full" onError={(e) => e.target.src = 'https://via.placeholder.com/24'} />
+                            <img src="./linkedin.png" alt="LinkedIn logo" className="w-6 h-6 mr-2 rounded-full" onError={(e) => e.target.src = 'https://via.placeholder.com/24'} />
                             LinkedIn
                         </motion.a>
                         <motion.a 
                             href="mailto:sagar.makar24-01@iimv.ac.in" 
-                            className="flex items-center bg-blue-700 text-white px-6 py-3 rounded-full hover:bg-blue-800 transition shadow-md mb-4"
-                            whileHover={{ scale: 1.05 }}
+                            className="flex items-center neon-btn text-white px-6 py-3 rounded-full font-semibold mb-4"
+                            whileHover={{ scale: 1.1, boxShadow: "0 0 25px rgba(0, 221, 235, 0.9)" }}
+                            transition={{ duration: 0.3 }}
+                            aria-label="Email Sagar Makar"
                         >
-                            <img src="email.png" alt="Email" className="w-6 h-6 mr-2 rounded-full" onError={(e) => e.target.src = 'https://via.placeholder.com/24'} />
+                            <img src="./email.png" alt="Email icon" className="w-6 h-6 mr-2 rounded-full" onError={(e) => e.target.src = 'https://via.placeholder.com/24'} />
                             Email
                         </motion.a>
                         <motion.a 
-                            href="Sagar Makar_Master Resume (1).pdf" 
+                            href="./Sagar Makar_Master Resume (1).pdf" 
                             target="_blank" 
-                            className="flex items-center bg-blue-700 text-white px-6 py-3 rounded-full hover:bg-blue-800 transition shadow-md mb-4"
-                            whileHover={{ scale: 1.05 }}
+                            className="flex items-center neon-btn text-white px-6 py-3 rounded-full font-semibold mb-4"
+                            whileHover={{ scale: 1.1, boxShadow: "0 0 25px rgba(0, 221, 235, 0.9)" }}
+                            transition={{ duration: 0.3 }}
+                            aria-label="Download Sagar Makar's resume"
                         >
-                            <img src="resume.jpg" alt="Resume" className="w-6 h-6 mr-2 rounded-full" onError={(e) => e.target.src = 'https://via.placeholder.com/24'} />
+                            <img src="./resume.jpg" alt="Resume icon" className="w-6 h-6 mr-2 rounded-full" onError={(e) => e.target.src = 'https://via.placeholder.com/24'} />
                             Download Resume
                         </motion.a>
                     </div>
@@ -388,8 +275,8 @@
 
         // Footer
         const Footer = () => (
-            <footer className="bg-blue-700 text-white text-center py-6">
-                <p>&copy; 2025 Sagar Makar. All rights reserved.</p>
+            <footer className="bg-black text-white text-center py-6">
+                <p className="glow">&copy; 2025 Sagar Makar. All rights reserved.</p>
             </footer>
         );
 
@@ -400,38 +287,59 @@
                 <Hero />
                 <About />
                 <Skills />
-                <Education />
-                <Experience />
-                <Certifications />
-                <Responsibilities />
-                <Extracurricular />
                 <Contact />
                 <Footer />
             </div>
         );
 
-        // Render the App with Error Boundary
+        // Error Boundary
         class ErrorBoundary extends React.Component {
-            state = { hasError: false };
+            state = { hasError: false, error: null };
 
             static getDerivedStateFromError(error) {
-                return { hasError: true };
+                return { hasError: true, error };
+            }
+
+            componentDidCatch(error, errorInfo) {
+                console.error("ErrorBoundary caught an error:", error, errorInfo);
             }
 
             render() {
                 if (this.state.hasError) {
-                    return <div className="error-fallback">Something went wrong. Please refresh the page.</div>;
+                    return (
+                        <div className="text-center p-10 text-red-400 glow">
+                            <p>Something went wrong: {this.state.error?.message || "Unknown error"}</p>
+                            <p>Please refresh the page or check your internet connection.</p>
+                        </div>
+                    );
                 }
                 return this.props.children;
             }
         }
 
+        // Render the App
         ReactDOM.render(
             <ErrorBoundary>
                 <App />
             </ErrorBoundary>,
             document.getElementById('root')
         );
+
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#00ddeb' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                move: { enable: true, speed: 2, direction: 'none', random: true }
+            },
+            interactivity: {
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' } },
+                modes: { repulse: { distance: 100 }, push: { particles_nb: 4 } }
+            }
+        });
     </script>
 </body>
 </html>
