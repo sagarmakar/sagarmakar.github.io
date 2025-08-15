@@ -9,73 +9,86 @@
     gtag('js', new Date());
     gtag('config', 'G-HYCDL8PC7Z');
   </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sagar Makar - Resume</title>
   <link rel="icon" href="favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
   <style>
+    /* THEME VARIABLES */
     :root {
+      --bg: #f5f5f5;
+      --bg-elev: #ffffff;
+      --bg-elev-2: #f0f0f0;
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #0d6efd;
+      --accent-2: #0a58ca;
+      --border: #ddd;
+    }
+
+    body.dark {
       --bg: #121212;
       --bg-elev: #1e1e1e;
       --bg-elev-2: #242424;
       --text: #e0e0e0;
       --muted: #bdbdbd;
-      --accent: #6a11cb;
-      --accent-2: #4b6cb7;
+      --accent: #0d6efd;
+      --accent-2: #5a9bff;
       --border: #2e2e2e;
     }
 
     html { scroll-behavior: smooth; }
-
-    /* Contact buttons - smaller & elegant */
-.contact-btn {
-    display: inline-block;
-    padding: 6px 12px;
-    margin: 0 4px;
-    background: #009688;
-    color: #fff;
-    font-size: 0.9em;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-.contact-btn:hover {
-    background: #00796b;
-}
-
-/* Progress bar container */
-#progressContainer {
-    width: 100%;
-    height: 6px;
-    background: #ddd;
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-}
-#progressBar {
-    height: 6px;
-    width: 0%;
-    background: linear-gradient(to right, orange, red);
-}
-
-
     body {
-      font-family: 'Roboto', system-ui, sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       background: var(--bg);
       color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Dark/Light Mode Toggle */
+    #themeToggle {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      font-size: 0.85em;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #themeToggle:hover { background: var(--accent-2); }
+
+    /* Progress bar container */
+    #progressContainer {
+      width: 100%;
+      height: 6px;
+      background: #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+    }
+    #progressBar {
+      height: 6px;
+      width: 0%;
+      background: linear-gradient(to right, orange, red);
     }
 
     /* Top Banner */
     header.hero {
       text-align: center;
       padding: 28px 16px 20px;
-      background: linear-gradient(135deg, var(--accent-2), #182848);
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
       color: #fff;
       border-bottom: 4px solid var(--accent);
+      position: relative;
     }
-
     header.hero h1 { margin: 0 0 6px; font-size: 32px; }
     header.hero p { margin: 8px 0; font-size: 14px; }
 
@@ -99,35 +112,40 @@
       margin: 0 4px;
       transition: background 0.2s ease;
     }
-    .contact-btn:hover { background: #5a0fb8; }
+    .contact-btn:hover { background: var(--accent-2); }
 
-    /* Content */
+    /* Main Content */
     main.content {
       max-width: 1000px;
       margin: auto;
       padding: 24px;
     }
-
     .resume-section {
       background: var(--bg-elev);
       padding: 20px;
       border-radius: 14px;
-      box-shadow: 0 6px 18px rgba(0,0,0,.35);
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
       margin: 22px 0;
       border: 1px solid var(--border);
+      transition: background 0.3s;
     }
     .resume-section:hover { background: var(--bg-elev-2); }
-    h2 { color: var(--accent); border-bottom: 2px solid #2f2f2f; padding-bottom: 8px; margin-top: 0; }
+    h2 {
+      color: var(--accent);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
 
     ul { list-style: none; padding: 0; margin: 12px 0 0; }
     ul li {
-      background: #2c2c2c;
+      background: var(--bg-elev-2);
       border-left: 4px solid var(--accent);
       padding: 10px 12px;
       border-radius: 10px;
       margin-bottom: 8px;
     }
-    ul li:hover { background: #3a3a3a; }
+    ul li:hover { background: var(--bg-elev); }
 
     .skills-grid {
       display: grid;
@@ -135,27 +153,33 @@
       gap: 10px;
       margin-top: 12px;
     }
-    .skills-grid li { margin-bottom: 0; }
 
     table { width: 100%; border-collapse: collapse; margin-top: 12px; }
-    th, td { padding: 10px; text-align: left; border: 1px solid #333; }
+    th, td { padding: 10px; text-align: left; border: 1px solid var(--border); }
     th { background: var(--accent); color: #fff; }
 
     .job-title { display: flex; justify-content: space-between; font-weight: 700; margin-top: 12px; }
 
     .download-btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 18px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9em;
     }
-    .download-btn:hover { background: #5a0fb8; }
-    .download-btn img { max-width: 24px; }
+    .download-btn:hover { background: var(--accent-2); }
+    .download-btn img { max-width: 20px; }
 
     footer {
       text-align: center;
       padding: 10px;
       color: var(--muted);
       font-size: 12px;
-      background: #181818;
+      background: var(--bg-elev);
       border-top: 1px solid var(--border);
     }
 
@@ -168,22 +192,25 @@
 
   <!-- Top Banner -->
   <header class="hero">
+    <button id="themeToggle">Switch Mode</button>
     <h1>Sagar Makar</h1>
     <p>
       M.B.A. '26 (IIM Visakhapatnam)<br>
-  <a href="mailto:sagar.makar24-01@iimv.ac.in" class="contact-btn">Email</a>
-  <a href="tel:+917673928580" class="contact-btn">Call</a>
-  <a href="https://www.linkedin.com/in/sagarmakar" target="_blank" rel="noopener" class="contact-btn">LinkedIn</a>
-</p>
+      <a href="mailto:sagar.makar24-01@iimv.ac.in" class="contact-btn">Email</a>
+      <a href="tel:+917673928580" class="contact-btn">Call</a>
+      <a href="https://www.linkedin.com/in/sagarmakar" target="_blank" rel="noopener" class="contact-btn">LinkedIn</a>
+    </p>
     <img class="avatar" src="Sagar_Makar_2410323.jpeg" alt="Sagar Makar" />
   </header>
+
+  <!-- Progress Bar -->
   <div id="progressContainer">
     <div id="progressBar"></div>
-</div>
+  </div>
 
   <!-- Main Content -->
   <main class="content">
-
+    <!-- ABOUT -->
     <section id="about" class="resume-section">
       <h2>About</h2>
       <p>
@@ -191,6 +218,7 @@
       </p>
     </section>
 
+    <!-- EDUCATION -->
     <section id="education" class="resume-section">
       <h2>Education</h2>
       <table>
@@ -206,6 +234,7 @@
       </table>
     </section>
 
+    <!-- WORK EXPERIENCE -->
     <section id="work-experience" class="resume-section">
       <h2>Work Experience (21 Months)</h2>
       <div class="job-title"><span>Security Specialist</span><span>IBM</span></div>
@@ -217,11 +246,12 @@
         <li>Drove 10% reduction in manual tasks and 30% error drop via product development.</li>
         <li>Led 70+ member team for global consulting projects.</li>
         <li>Built InfraSec tool cutting response time by 50%.</li>
-        <li>Designed, developed, and deployed enterprise security automation reducing turnaround by 40%.</li>
+        <li>Designed and deployed enterprise security automation reducing turnaround by 40%.</li>
         <li>Managed cross-timezone stakeholders and delivered reports to CXO-level clients.</li>
       </ul>
     </section>
 
+    <!-- INTERNSHIPS -->
     <section id="internships" class="resume-section">
       <h2>Internships</h2>
       <div class="job-title"><span>Management Intern – Founder’s Office</span><span>LiquidMind.AI</span></div>
@@ -239,6 +269,7 @@
       </ul>
     </section>
 
+    <!-- CERTIFICATIONS -->
     <section id="certifications" class="resume-section">
       <h2>Certifications</h2>
       <ul>
@@ -249,6 +280,7 @@
       </ul>
     </section>
 
+    <!-- POSITIONS OF RESPONSIBILITY -->
     <section id="responsibilities" class="resume-section">
       <h2>Positions of Responsibility</h2>
       <ul>
@@ -258,6 +290,7 @@
       </ul>
     </section>
 
+    <!-- SKILLS -->
     <section id="skills" class="resume-section">
       <h2>Skills</h2>
       <ul class="skills-grid">
@@ -276,6 +309,7 @@
       </ul>
     </section>
 
+    <!-- EXTRA-CURRICULAR -->
     <section id="extracurricular" class="resume-section">
       <h2>Extra-Curricular Activities</h2>
       <ul>
@@ -286,6 +320,7 @@
       </ul>
     </section>
 
+    <!-- DOWNLOAD -->
     <section id="download" class="resume-section">
       <h2>Download Resume</h2>
       <p>You can download my resume in PDF format:</p>
@@ -293,21 +328,30 @@
         <img src="logo.png" alt="" aria-hidden="true" /> <span>Download PDF</span>
       </a>
     </section>
-
   </main>
 
   <!-- Footer -->
   <footer>
     © 2025 Sagar Makar. All rights reserved.
   </footer>
-<script>
-window.addEventListener("scroll", function() {
-    let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    let scrolled = (winScroll / height) * 100;
-    document.getElementById("progressBar").style.width = scrolled + "%";
-});
-</script>
+
+  <!-- Scripts -->
+  <script>
+    // Scroll progress bar
+    window.addEventListener("scroll", function() {
+      let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let scrolled = (winScroll / height) * 100;
+      document.getElementById("progressBar").style.width = scrolled + "%";
+    });
+
+    // Theme toggle
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggleBtn.textContent = document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+    });
+  </script>
 
 </body>
 </html>
