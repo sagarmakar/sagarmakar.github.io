@@ -66,15 +66,25 @@
     .resume-section:hover { background: var(--bg-elev-2); }
     h2 { color: var(--accent); border-bottom: 2px solid #2f2f2f; padding-bottom: 8px; margin-top: 0; }
 
-    ul { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    /* Bullet points */
+    ul { list-style: none; padding: 0; margin: 12px 0 0; }
     ul li {
       background: #2c2c2c;
       border-left: 4px solid var(--accent);
       padding: 10px 12px;
       border-radius: 10px;
-      flex: 1 1 calc(50% - 10px);
+      margin-bottom: 8px;
     }
     ul li:hover { background: #3a3a3a; }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .skills-grid li { margin-bottom: 0; }
 
     table { width: 100%; border-collapse: collapse; margin-top: 12px; }
     th, td { padding: 10px; text-align: left; border: 1px solid #333; }
@@ -100,7 +110,7 @@
     }
 
     @media (max-width: 768px) {
-      ul li { flex: 1 1 100%; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -123,7 +133,7 @@
     <section id="about" class="resume-section">
       <h2>About</h2>
       <p>
-        Tier-1 B-School postgraduate with a strong foundation in finance, marketing, strategy, and operations. Possesses diverse experience spanning security, product development, GTM strategy, and leadership across corporate and startup environments. Passionate about applying data-driven decision-making and innovative thinking to deliver measurable business impact.
+        Tier-1 B-School postgraduate with strong foundations in finance, marketing, strategy, and operations. Proven track record in security, product development, GTM strategy, and leadership across corporate and startup environments. Passionate about leveraging data-driven decision-making and innovative thinking to deliver measurable business impact.
       </p>
     </section>
 
@@ -153,6 +163,8 @@
         <li>Drove 10% reduction in manual tasks and 30% error drop via product development.</li>
         <li>Led 70+ member team for global consulting projects.</li>
         <li>Built InfraSec tool cutting response time by 50%.</li>
+        <li>Designed, developed, and deployed enterprise security automation reducing turnaround by 40%.</li>
+        <li>Managed cross-timezone stakeholders and delivered reports to CXO-level clients.</li>
       </ul>
     </section>
 
@@ -163,11 +175,13 @@
         <li>5.3x audience growth, 7x daily traffic via MetaSuite community expansion.</li>
         <li>60+ qualified leads in Week 1 through targeted outreach.</li>
         <li>Built financial models, GTM strategies, and managed multi-channel digital presence.</li>
+        <li>Designed dashboards for performance tracking and reporting to leadership.</li>
       </ul>
       <div class="job-title"><span>Cyber Security Intern</span><span>IBM</span></div>
       <ul>
         <li>Commended for innovation in strategic product solutions.</li>
         <li>Designed scalable product framework; delivered data-driven decision reports.</li>
+        <li>Automated reporting tools that reduced manual effort by 25%.</li>
       </ul>
     </section>
 
@@ -186,12 +200,13 @@
       <ul>
         <li>Junior Placement Representative – Led corporate relations and 13 placement drives for 700+ candidates.</li>
         <li>Club Coordinator – Managed ₹5L+ resources and institute-wide events.</li>
+        <li>Case Competition Mentor – Guided 4 winning teams in national-level events.</li>
       </ul>
     </section>
 
     <section id="skills" class="resume-section">
       <h2>Skills</h2>
-      <ul>
+      <ul class="skills-grid">
         <li>Finance</li>
         <li>Marketing</li>
         <li>Strategy</li>
@@ -200,6 +215,10 @@
         <li>Data Analysis</li>
         <li>Project Management</li>
         <li>Cross-Functional Leadership</li>
+        <li>Cybersecurity</li>
+        <li>GTM Strategy</li>
+        <li>Stakeholder Management</li>
+        <li>Process Automation</li>
       </ul>
     </section>
 
@@ -209,6 +228,7 @@
         <li>1st & 3rd place in 4 national case competitions.</li>
         <li>Mentored juniors; coordinated academic and co-curricular initiatives.</li>
         <li>Led team at National Children’s Science Congress.</li>
+        <li>Organised inter-college cultural fest attracting 1,500+ participants.</li>
       </ul>
     </section>
 
