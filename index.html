@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sagar Makar's Resume</title>
+  <title>Sagar Makar - Resume</title>
   <link rel="icon" href="favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
@@ -21,30 +21,24 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: 'Roboto', system-ui, sans-serif;
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      display: flex;
-      min-height: 100vh;
-      overflow-x: hidden;
     }
 
-    /* Top Header */
+    /* Top Banner */
     header.hero {
-      position: relative;
       text-align: center;
       padding: 28px 16px 20px;
       background: linear-gradient(135deg, var(--accent-2), #182848);
       color: #fff;
       border-bottom: 4px solid var(--accent);
-      width: 100%;
-      z-index: 10;
     }
 
-    header.hero h1 { margin: 0 0 6px; font-size: 28px; letter-spacing: .3px; }
-    header.hero p { margin: 0; font-size: 14px; color: #f5f5f5; }
-    header.hero a { color: #fff; text-underline-offset: 3px; }
+    header.hero h1 { margin: 0 0 6px; font-size: 32px; }
+    header.hero p { margin: 4px 0; font-size: 14px; }
+    header.hero a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
 
     .avatar {
       max-width: 120px;
@@ -54,73 +48,11 @@
       box-shadow: 0 6px 18px rgba(0,0,0,.35);
     }
 
-    /* Hamburger */
-    .hamburger {
-      position: absolute;
-      left: 12px;
-      top: 14px;
-      background: transparent;
-      border: 0;
-      width: 44px; height: 44px;
-      display: none; /* shown on mobile */
-      align-items: center; justify-content: center;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .hamburger:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-    .hamburger-box { width: 22px; height: 18px; position: relative; }
-    .hamburger-line { position: absolute; left: 0; right: 0; height: 2px; background: #fff; border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
-    .hamburger-line:nth-child(1) { top: 0; }
-    .hamburger-line:nth-child(2) { top: 8px; }
-    .hamburger-line:nth-child(3) { top: 16px; }
-    body.sidebar-open .hamburger-line:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    body.sidebar-open .hamburger-line:nth-child(2) { opacity: 0; }
-    body.sidebar-open .hamburger-line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* Sidebar */
-    nav.sidebar {
-      width: 240px;
-      background: #1f1f1f;
-      padding: 16px;
-      position: fixed;
-      left: 0; top: 0; bottom: 0;
-      overflow-y: auto;
-      box-shadow: 2px 0 8px rgba(0,0,0,.35);
-      border-right: 1px solid var(--border);
-    }
-    .sidebar h3 { margin: 8px 8px 12px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
-    .nav-link, .dropdown > button {
-      width: 100%;
-      text-align: left;
-      display: block;
-      color: var(--text);
-      background: transparent;
-      border: 0;
-      text-decoration: none;
-      padding: 10px 12px;
-      margin: 6px 0;
-      border-radius: 8px;
-      transition: background .25s ease, color .25s ease;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .nav-link:hover, .dropdown > button:hover { background: var(--accent); color: #fff; }
-
-    .dropdown .dropdown-content { display: none; padding-left: 8px; }
-    .dropdown[aria-expanded="true"] .dropdown-content { display: block; }
-
-    /* Overlay when sidebar is open on mobile */
-    .overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,.45);
-      opacity: 0; pointer-events: none; transition: opacity .25s ease; z-index: 9;
-    }
-    body.sidebar-open .overlay { opacity: 1; pointer-events: auto; }
-
-    /* Main content */
-    .content {
-      margin-left: 240px;
+    /* Content */
+    main.content {
+      max-width: 1000px;
+      margin: auto;
       padding: 24px;
-      width: 100%;
     }
 
     .resume-section {
@@ -129,14 +61,11 @@
       border-radius: 14px;
       box-shadow: 0 6px 18px rgba(0,0,0,.35);
       margin: 22px 0;
-      transition: transform .25s ease, background .25s ease;
       border: 1px solid var(--border);
     }
-    .resume-section:hover { transform: translateY(-3px); background: var(--bg-elev-2); }
-
+    .resume-section:hover { background: var(--bg-elev-2); }
     h2 { color: var(--accent); border-bottom: 2px solid #2f2f2f; padding-bottom: 8px; margin-top: 0; }
 
-    /* Lists */
     ul { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
     ul li {
       background: #2c2c2c;
@@ -144,293 +73,159 @@
       padding: 10px 12px;
       border-radius: 10px;
       flex: 1 1 calc(50% - 10px);
-      transition: background .25s ease;
     }
     ul li:hover { background: #3a3a3a; }
 
-    /* Tables */
     table { width: 100%; border-collapse: collapse; margin-top: 12px; }
     th, td { padding: 10px; text-align: left; border: 1px solid #333; }
     th { background: var(--accent); color: #fff; }
 
-    .job-title { display: flex; justify-content: space-between; align-items: center; font-weight: 700; margin-top: 12px; }
+    .job-title { display: flex; justify-content: space-between; font-weight: 700; margin-top: 12px; }
 
     .download-btn {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 18px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 10px; transition: background .25s ease;
+      padding: 12px 18px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 10px;
     }
     .download-btn:hover { background: #5a0fb8; }
-    .download-btn img { max-width: 24px; border: 0; margin: 0; }
+    .download-btn img { max-width: 24px; }
 
-    footer { text-align: center; padding: 18px; color: var(--muted); border-top: 1px solid var(--border); background: #181818; }
-
-    /* Mobile / Tablet */
-    @media (max-width: 992px) {
-      .hamburger { display: inline-flex; }
-      nav.sidebar { transform: translateX(-100%); transition: transform .25s ease; z-index: 10; }
-      body.sidebar-open nav.sidebar { transform: translateX(0); }
-      .content { margin-left: 0; padding: 18px; }
-      ul li { flex: 1 1 100%; }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      background: #181818;
+      border-top: 1px solid var(--border);
     }
 
-    /* Print-friendly */
-    @media print {
-      .hamburger, nav.sidebar, .overlay, .download-btn { display: none !important; }
-      header.hero { border: 0; background: #fff; color: #000; }
-      body { background: #fff; color: #000; }
-      .content { margin: 0; }
-      .resume-section { box-shadow: none; border: 1px solid #ddd; }
-      h2 { color: #000; border-color: #999; }
+    @media (max-width: 768px) {
+      ul li { flex: 1 1 100%; }
     }
   </style>
 </head>
 <body>
-  <!-- Overlay for mobile sidebar -->
-  <div class="overlay" id="overlay" aria-hidden="true"></div>
 
+  <!-- Top Banner -->
   <header class="hero">
-    <button id="menuToggle" class="hamburger" aria-label="Toggle menu" aria-controls="sidebar" aria-expanded="false">
-      <span class="hamburger-box">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </span>
-    </button>
     <h1>Sagar Makar</h1>
     <p>
-      M.B.A. 2026 | IIM Visakhapatnam |
+      M.B.A. 2026 | Indian Institute of Management Visakhapatnam<br>
       <a href="mailto:sagar.makar24-01@iimv.ac.in">sagar.makar24-01@iimv.ac.in</a> |
-      Phone: +91-XXXXXXXXXX
+      Phone: +91-7673928580
     </p>
     <img class="avatar" src="Sagar_Makar_2410323.jpeg" alt="Sagar Makar" />
   </header>
 
-  <nav id="sidebar" class="sidebar" aria-label="Primary">
-    <h3>Navigate</h3>
-    <div class="dropdown" aria-expanded="false">
-      <button type="button" aria-controls="home-list">Home ▾</button>
-      <div class="dropdown-content" id="home-list">
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#education">Education</a>
-      </div>
-    </div>
+  <!-- Main Content -->
+  <main class="content">
 
-    <div class="dropdown" aria-expanded="false">
-      <button type="button" aria-controls="exp-list">Experience ▾</button>
-      <div class="dropdown-content" id="exp-list">
-        <a class="nav-link" href="#work-experience">Work Experience</a>
-        <a class="nav-link" href="#internships">Internships</a>
-      </div>
-    </div>
-
-    <div class="dropdown" aria-expanded="false">
-      <button type="button" aria-controls="details-list">Details ▾</button>
-      <div class="dropdown-content" id="details-list">
-        <a class="nav-link" href="#certifications">Certifications</a>
-        <a class="nav-link" href="#responsibilities">Positions of Responsibility</a>
-        <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link" href="#extracurricular">Extra-Curricular Activities</a>
-      </div>
-    </div>
-
-    <a class="nav-link" href="#download">Download Resume</a>
-  </nav>
-
-  <main class="content" id="main">
-    <section id="about" class="resume-section" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
+    <section id="about" class="resume-section">
+      <h2>About</h2>
       <p>
-        I am a dedicated M.B.A. candidate with a strong background in technology and business management. My experience spans security, product development, and strategic initiatives, where I deliver innovative solutions and optimize processes. I am passionate about leveraging technology to drive business success and committed to continuous learning.
+        Tier-1 B-School postgraduate with a strong foundation in finance, marketing, strategy, and operations. Possesses diverse experience spanning security, product development, GTM strategy, and leadership across corporate and startup environments. Passionate about applying data-driven decision-making and innovative thinking to deliver measurable business impact.
       </p>
     </section>
 
-    <section id="education" class="resume-section" aria-labelledby="education-title">
-      <h2 id="education-title">Education</h2>
+    <section id="education" class="resume-section">
+      <h2>Education</h2>
       <table>
         <thead>
-          <tr>
-            <th>Degree</th>
-            <th>Institute</th>
-            <th>Score</th>
-            <th>Year</th>
-          </tr>
+          <tr><th>Degree</th><th>Institute</th><th>Score</th><th>Year</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>M.B.A.</td>
-            <td>Indian Institute of Management Visakhapatnam</td>
-            <td>3.32/4</td>
-            <td>2026</td>
-          </tr>
-          <tr>
-            <td>B. Tech. (ECE)</td>
-            <td>NIIT University, Alwar</td>
-            <td>7.97 / 10</td>
-            <td>2018 – 2022</td>
-          </tr>
-          <tr>
-            <td>TSBIE - 12th</td>
-            <td>Vijay Ratna Jr. College, Hyderabad</td>
-            <td>90.1 / 100</td>
-            <td>2018</td>
-          </tr>
-          <tr>
-            <td>CBSE - 10th</td>
-            <td>Kendriya Vidyalaya No. 2, AFA Dundigal</td>
-            <td>9.8 / 10</td>
-            <td>2016</td>
-          </tr>
+          <tr><td>M.B.A.</td><td>Indian Institute of Management Visakhapatnam</td><td>3.32 / 4</td><td>2026</td></tr>
+          <tr><td>B. Tech. (ECE)</td><td>NIIT University, Alwar</td><td>7.97 / 10</td><td>2018 – 2022</td></tr>
+          <tr><td>TSBIE - 12th</td><td>Vijay Ratna Jr. College, Hyderabad</td><td>90.1 / 100</td><td>2018</td></tr>
+          <tr><td>CBSE - 10th</td><td>Kendriya Vidyalaya No. 2, AFA Dundigal</td><td>9.8 / 10</td><td>2016</td></tr>
         </tbody>
       </table>
     </section>
 
-    <section id="work-experience" class="resume-section" aria-labelledby="work-title">
-      <h2 id="work-title">Work Experience (21 Months)</h2>
-
-      <div class="job-title">
-        <span>Security Specialist</span>
-        <span>IBM</span>
-      </div>
+    <section id="work-experience" class="resume-section">
+      <h2>Work Experience (21 Months)</h2>
+      <div class="job-title"><span>Security Specialist</span><span>IBM</span></div>
       <ul>
-        <li><strong>Best Asset (Q2 2023):</strong> Improved operational efficiency by 20% through automation.</li>
-        <li><strong>Finalist:</strong> Among 2,600+ in WatsonX Hackathon; developed Generative AI prototype.</li>
-        <li><strong>Mentored 5 interns:</strong> Achieved 100% conversion to full-time roles.</li>
-        <li><strong>Spearheaded 3 projects:</strong> Managed PoC with 10+ team and global client communications.</li>
-        <li><strong>Reduced manual tasks:</strong> Achieved 10% reduction and 30% fewer errors in new product development.</li>
-        <li><strong>Led 70+ team:</strong> Drove cross-functional collaboration for global consulting projects.</li>
-        <li><strong>Built InfraSec tool:</strong> Streamlined workflows; improved response speed by 50%.</li>
-      </ul>
-
-      <div class="job-title">
-        <span>Management Intern – Founder’s Office</span>
-        <span>LiquidMind.AI</span>
-      </div>
-      <ul>
-        <li><strong>5.3x audience growth:</strong> Achieved through community expansion over MetaSuite.</li>
-        <li><strong>60+ qualified leads:</strong> Generated in Week 1 by targeting key accounts.</li>
-        <li><strong>Aligned 5+ firms:</strong> Supported capital and resource optimization initiatives.</li>
-        <li><strong>2 GTM strategies:</strong> Developed for market entry into new regions.</li>
+        <li>Awarded Best Asset (Q2 2023) for automation boosting efficiency by 20%.</li>
+        <li>Finalist among 2,600+ in WatsonX Hackathon; built Generative AI & LLM prototype.</li>
+        <li>Mentored 5 interns (100% conversion to full-time).</li>
+        <li>Led 3 projects end-to-end with 10+ team members and global client communication.</li>
+        <li>Drove 10% reduction in manual tasks and 30% error drop via product development.</li>
+        <li>Led 70+ member team for global consulting projects.</li>
+        <li>Built InfraSec tool cutting response time by 50%.</li>
       </ul>
     </section>
 
-    <section id="internships" class="resume-section" aria-labelledby="intern-title">
-      <h2 id="intern-title">Internships</h2>
-
-      <div class="job-title">
-        <span>Management Intern – Founder’s Office</span>
-        <span>LiquidMind.AI</span>
-      </div>
+    <section id="internships" class="resume-section">
+      <h2>Internships</h2>
+      <div class="job-title"><span>Management Intern – Founder’s Office</span><span>LiquidMind.AI</span></div>
       <ul>
-        <li><strong>5.3x audience growth:</strong> Achieved through community expansion over MetaSuite.</li>
-        <li><strong>60+ qualified leads:</strong> Generated in Week 1 by targeting key accounts.</li>
-        <li><strong>Aligned 5+ firms:</strong> Supported capital and resource optimization initiatives.</li>
-        <li><strong>2 GTM strategies:</strong> Developed for market entry into new regions.</li>
+        <li>5.3x audience growth, 7x daily traffic via MetaSuite community expansion.</li>
+        <li>60+ qualified leads in Week 1 through targeted outreach.</li>
+        <li>Built financial models, GTM strategies, and managed multi-channel digital presence.</li>
       </ul>
-
-      <div class="job-title">
-        <span>Cyber Security Intern</span>
-        <span>IBM</span>
-      </div>
+      <div class="job-title"><span>Cyber Security Intern</span><span>IBM</span></div>
       <ul>
-        <li><strong>Commended:</strong> For innovation in strategic product solutions.</li>
-        <li><strong>Contributed to product framework:</strong> Designed scalable internal base model.</li>
+        <li>Commended for innovation in strategic product solutions.</li>
+        <li>Designed scalable product framework; delivered data-driven decision reports.</li>
       </ul>
     </section>
 
-    <section id="certifications" class="resume-section" aria-labelledby="certs-title">
-      <h2 id="certs-title">Certifications</h2>
+    <section id="certifications" class="resume-section">
+      <h2>Certifications</h2>
       <ul>
-        <li>Sales Advanced - WatsonX Badge for AI and management skills.</li>
-        <li>IBM Data Science - Badge for data analysis and model building.</li>
-        <li>Enterprise Design Thinking - Certified in design frameworks.</li>
-        <li>IBM Agile Explorer - Proficient in Agile frameworks.</li>
+        <li>Sales Advanced – WatsonX Badge</li>
+        <li>IBM Data Science</li>
+        <li>Enterprise Design Thinking</li>
+        <li>IBM Agile Explorer</li>
       </ul>
     </section>
 
-    <section id="responsibilities" class="resume-section" aria-labelledby="por-title">
-      <h2 id="por-title">Positions of Responsibility</h2>
+    <section id="responsibilities" class="resume-section">
+      <h2>Positions of Responsibility</h2>
       <ul>
-        <li><strong>Junior Placement Representative:</strong> Led corporate relations; managed 13 placement drives for 700+ candidates.</li>
-        <li><strong>Club Coordinator:</strong> Managed scheduling and execution of institute-wide events; oversaw ₹5L+ resource allocation.</li>
+        <li>Junior Placement Representative – Led corporate relations and 13 placement drives for 700+ candidates.</li>
+        <li>Club Coordinator – Managed ₹5L+ resources and institute-wide events.</li>
       </ul>
     </section>
 
-    <section id="skills" class="resume-section" aria-labelledby="skills-title">
-      <h2 id="skills-title">Skills</h2>
+    <section id="skills" class="resume-section">
+      <h2>Skills</h2>
       <ul>
-        <li>Management</li>
-        <li>Marketing</li>
         <li>Finance</li>
+        <li>Marketing</li>
         <li>Strategy</li>
         <li>Operations</li>
+        <li>Management</li>
         <li>Data Analysis</li>
         <li>Project Management</li>
         <li>Cross-Functional Leadership</li>
       </ul>
     </section>
 
-    <section id="extracurricular" class="resume-section" aria-labelledby="ec-title">
-      <h2 id="ec-title">Extra-Curricular Activities</h2>
+    <section id="extracurricular" class="resume-section">
+      <h2>Extra-Curricular Activities</h2>
       <ul>
-        <li><strong>Competitions:</strong> 1st and 3rd place in 4 national case competitions.</li>
-        <li><strong>Student Mentor:</strong> Nominated to lead and mentor juniors; coordinated activities.</li>
-        <li><strong>National Representation:</strong> Led a team for the National Children’s Science Congress.</li>
+        <li>1st & 3rd place in 4 national case competitions.</li>
+        <li>Mentored juniors; coordinated academic and co-curricular initiatives.</li>
+        <li>Led team at National Children’s Science Congress.</li>
       </ul>
     </section>
 
-    <section id="download" class="resume-section" aria-labelledby="download-title">
-      <h2 id="download-title">Download Resume</h2>
+    <section id="download" class="resume-section">
+      <h2>Download Resume</h2>
       <p>You can download my resume in PDF format:</p>
       <a href="Sagar Makar_Master Resume (1).pdf" class="download-btn" target="_blank" rel="noopener">
-        <img src="logo.png" alt="" aria-hidden="true" />
-        <span>Download PDF</span>
+        <img src="logo.png" alt="" aria-hidden="true" /> <span>Download PDF</span>
       </a>
     </section>
+
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Sagar Makar. All rights reserved.</p>
+    © 2025 Sagar Makar. All rights reserved.
   </footer>
 
-  <script>
-    // Mobile sidebar toggle
-    const menuBtn = document.getElementById('menuToggle');
-    const overlay = document.getElementById('overlay');
-    const sidebar = document.getElementById('sidebar');
-
-    function closeSidebar() {
-      document.body.classList.remove('sidebar-open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    }
-
-    menuBtn.addEventListener('click', () => {
-      const willOpen = !document.body.classList.contains('sidebar-open');
-      document.body.classList.toggle('sidebar-open');
-      menuBtn.setAttribute('aria-expanded', String(willOpen));
-    });
-
-    overlay.addEventListener('click', closeSidebar);
-
-    // Close sidebar when clicking a nav link (on mobile)
-    sidebar.addEventListener('click', (e) => {
-      const target = e.target;
-      if (target.matches('a.nav-link')) closeSidebar();
-    });
-
-    // Dropdown expand/collapse with keyboard support
-    document.querySelectorAll('.dropdown > button').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const parent = btn.parentElement;
-        const expanded = parent.getAttribute('aria-expanded') === 'true';
-        parent.setAttribute('aria-expanded', String(!expanded));
-      });
-      btn.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          btn.click();
-        }
-      });
-    });
-  </script>
 </body>
 </html>
