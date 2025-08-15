@@ -28,6 +28,38 @@
 
     html { scroll-behavior: smooth; }
 
+    /* Contact buttons - smaller & elegant */
+.contact-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 4px;
+    background: #009688;
+    color: #fff;
+    font-size: 0.9em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+.contact-btn:hover {
+    background: #00796b;
+}
+
+/* Progress bar container */
+#progressContainer {
+    width: 100%;
+    height: 6px;
+    background: #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+#progressBar {
+    height: 6px;
+    width: 0%;
+    background: linear-gradient(to right, orange, red);
+}
+
+
     body {
       font-family: 'Roboto', system-ui, sans-serif;
       margin: 0;
@@ -138,13 +170,16 @@
   <header class="hero">
     <h1>Sagar Makar</h1>
     <p>
-      M.B.A. 2026 | Indian Institute of Management Visakhapatnam<br>
-      <a href="mailto:sagar.makar24-01@iimv.ac.in" class="contact-btn">Email</a>
-      <a href="tel:+917673928580" class="contact-btn">Call</a>
-      <a href="https://www.linkedin.com/in/sagarmakar" target="_blank" rel="noopener" class="contact-btn">LinkedIn</a>
-    </p>
+      M.B.A. '26 (IIM Visakhapatnam)<br>
+  <a href="mailto:sagar.makar24-01@iimv.ac.in" class="contact-btn">Email</a>
+  <a href="tel:+917673928580" class="contact-btn">Call</a>
+  <a href="https://www.linkedin.com/in/sagarmakar" target="_blank" rel="noopener" class="contact-btn">LinkedIn</a>
+</p>
     <img class="avatar" src="Sagar_Makar_2410323.jpeg" alt="Sagar Makar" />
   </header>
+  <div id="progressContainer">
+    <div id="progressBar"></div>
+</div>
 
   <!-- Main Content -->
   <main class="content">
@@ -265,6 +300,14 @@
   <footer>
     © 2025 Sagar Makar. All rights reserved.
   </footer>
+<script>
+window.addEventListener("scroll", function() {
+    let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    let scrolled = (winScroll / height) * 100;
+    document.getElementById("progressBar").style.width = scrolled + "%";
+});
+</script>
 
 </body>
 </html>
