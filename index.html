@@ -7,7 +7,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-HYCDL8PC7Z');
+    gtag('config', 'G-HYCDL8PC7Z', { 'anonymize_ip': true, 'allow_google_signals': true, 'send_page_view': true });
   </script>
 
   <meta charset="UTF-8" />
@@ -113,6 +113,23 @@
       box-shadow: 0 6px 18px rgba(0,0,0,.35);
     }
 
+
+    header.hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25), transparent 36%),
+                  radial-gradient(circle at 80% 0%, rgba(255,255,255,0.2), transparent 34%);
+      pointer-events: none;
+    }
+
+    .resume-section {
+      transition: background 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .resume-section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0,0,0,.12);
+    }
     /* Contact Buttons */
     .contact-btn {
       display: inline-block;
@@ -173,6 +190,154 @@
 
     .job-title { display: flex; justify-content: space-between; font-weight: 700; margin-top: 12px; }
 
+    .quick-nav {
+      position: sticky;
+      top: 4px;
+      z-index: 9998;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: var(--bg-elev);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .quick-nav a {
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: var(--bg-elev);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .quick-nav a:hover {
+      transform: translateY(-1px);
+      background: var(--bg-elev-2);
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .highlight-card {
+      text-align: center;
+      background: linear-gradient(140deg, var(--bg-elev-2), var(--bg-elev));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .highlight-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .filter-btn {
+      background: var(--bg-elev-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .journey details {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      background: var(--bg-elev-2);
+    }
+    .journey summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+
+    .recruiter-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .pill {
+      background: var(--bg-elev-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .recruiter-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg-elev-2);
+      padding: 14px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .mini-btn {
+      border: 1px solid var(--border);
+      background: var(--bg-elev);
+      color: var(--text);
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .mini-btn:hover { background: var(--bg-elev-2); }
+    .search-wrap { margin-top: 10px; }
+    #impactSearch {
+      width: 100%;
+      max-width: 420px;
+      border: 1px solid var(--border);
+      background: var(--bg-elev-2);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+    #impactStats { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
     .download-btn {
       display: inline-flex;
       align-items: center;
@@ -196,8 +361,31 @@
       border-top: 1px solid var(--border);
     }
 
+    #backToTop {
+      position: fixed;
+      right: 14px;
+      bottom: 16px;
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      font-size: 18px;
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    #backToTop.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
     /* Responsive Tweaks */
     @media (max-width: 768px) {
+      .recruiter-grid { grid-template-columns: 1fr; }
       header.hero h1 { font-size: 24px; }
       header.hero p { font-size: 13px; }
       .avatar { max-width: 90px; margin-top: 12px; }
@@ -218,7 +406,7 @@
 
   <!-- Top Banner -->
   <header class="hero">
-    <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+    <button id="themeToggle" aria-label="Toggle theme">🌞</button>
     <h1>Sagar Makar</h1>
     <p>M.B.A. '26 (IIM Visakhapatnam)</p>
     <div>
@@ -234,24 +422,89 @@
     <div id="progressBar"></div>
   </div>
 
+  <nav class="quick-nav" aria-label="Quick links">
+    <a href="#about">About</a>
+    <a href="#recruiter">Recruiter View</a>
+    <a href="#highlights">Highlights</a>
+    <a href="#work-experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#journey">Journey</a>
+    <a href="#download">Resume</a>
+  </nav>
+
   <!-- Main Content -->
   <main class="content">
     <!-- ABOUT -->
-    <section id="about" class="resume-section">
+    <section id="about" class="resume-section reveal">
       <h2>About</h2>
       <p>Tier-1 B-School postgraduate with strong foundations in finance, marketing, strategy, and operations. Proven track record in security, product development, GTM strategy, and leadership across corporate and startup environments. Passionate about leveraging data-driven decision-making and innovative thinking to deliver measurable business impact.</p>
     </section>
 
+
+    <section id="recruiter" class="resume-section reveal">
+      <h2>Recruiter Quick View</h2>
+      <div class="recruiter-grid">
+        <div>
+          <p>MBA candidate with prior IBM security and product execution experience, strong analytics orientation, and proven outcomes across strategy, operations, and GTM.</p>
+          <div class="pill-row">
+            <span class="pill">Open to Summer Internship 2026</span>
+            <span class="pill">Preferred: Strategy / Product / Ops</span>
+            <span class="pill">Location: PAN India</span>
+            <span class="pill">Notice: Immediate for internship roles</span>
+          </div>
+          <div class="search-wrap">
+            <label for="impactSearch"><strong>Search achievements by keyword</strong></label><br />
+            <input id="impactSearch" type="text" placeholder="Try: ROI, GTM, dashboard, valuation" aria-label="Search impact bullets" />
+            <div id="impactStats">Showing all quantified achievements.</div>
+          </div>
+        </div>
+        <aside class="recruiter-card">
+          <h3 style="margin-top:0;">Contact & Resume</h3>
+          <p style="margin:0 0 8px;">Email: <a href="mailto:sagar.makar24-01@iimv.ac.in">sagar.makar24-01@iimv.ac.in</a></p>
+          <p style="margin:0 0 8px;">Phone: <a href="tel:+917673928580">+91 76739 28580</a></p>
+          <div class="cta-row">
+            <button class="mini-btn" id="copyEmailBtn" type="button">Copy Email</button>
+            <a class="mini-btn" href="Sagar Makar_Master Resume (1).pdf" target="_blank" rel="noopener">Open Resume</a>
+            <a class="mini-btn" href="https://www.linkedin.com/in/sagarmakar" target="_blank" rel="noopener">View LinkedIn</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="highlights" class="resume-section reveal">
+      <h2>Career Highlights</h2>
+      <p>Interactive snapshot of impact delivered across roles.</p>
+      <div class="highlights-grid">
+        <article class="highlight-card">
+          <div class="highlight-value" data-count="21">0</div>
+          <div>Months of Experience</div>
+        </article>
+        <article class="highlight-card">
+          <div class="highlight-value" data-count="70">0</div>
+          <div>Team Members Led</div>
+        </article>
+        <article class="highlight-card">
+          <div class="highlight-value" data-count="2600">0</div>
+          <div>Hackathon Peers Competed With</div>
+        </article>
+        <article class="highlight-card">
+          <div class="highlight-value" data-count="1500">0</div>
+          <div>Fest Participants Managed</div>
+        </article>
+      </div>
+    </section>
+
     <!-- EDUCATION -->
-    <section id="education" class="resume-section">
+    <section id="education" class="resume-section reveal">
       <h2>Education</h2>
       <table>
         <thead>
           <tr><th>Degree</th><th>Institute</th><th>Score</th><th>Year</th></tr>
         </thead>
         <tbody>
-          <tr><td>M.B.A.</td><td>Indian Institute of Management Visakhapatnam</td><td>3.32 / 4</td><td>2026</td></tr>
-          <tr><td>B. Tech. (ECE)</td><td>NIIT University, Alwar</td><td>7.97 / 10</td><td>2018 – 2022</td></tr>
+          <tr><td>M.B.A.</td><td>Indian Institute of Management Visakhapatnam</td><td>3.38 / 4</td><td>2026</td></tr>
+          <tr><td>B. Tech. (ECE)</td><td>NIIT University, Neemrana</td><td>7.97 / 10</td><td>2018 – 2022</td></tr>
           <tr><td>TSBIE - 12th</td><td>Vijay Ratna Jr. College, Hyderabad</td><td>90.1 / 100</td><td>2018</td></tr>
           <tr><td>CBSE - 10th</td><td>Kendriya Vidyalaya No. 2, AFA Dundigal</td><td>9.8 / 10</td><td>2016</td></tr>
         </tbody>
@@ -259,100 +512,142 @@
     </section>
 
     <!-- WORK EXPERIENCE -->
-    <section id="work-experience" class="resume-section">
+    <section id="work-experience" class="resume-section reveal">
       <h2>Work Experience (21 Months)</h2>
-      <div class="job-title"><span>Security Specialist</span><span>IBM</span></div>
+      <div class="job-title"><span>Security Specialist</span><span>IBM | Sep 2022 – Jun 2024</span></div>
       <ul>
-        <li>Awarded Best Asset (Q2 2023) for automation boosting efficiency by 20%.</li>
-        <li>Finalist among 2,600+ in WatsonX Hackathon; built Generative AI & LLM prototype.</li>
-        <li>Mentored 5 interns (100% conversion to full-time).</li>
-        <li>Led 3 projects end-to-end with 10+ team members and global client communication.</li>
-        <li>Drove 10% reduction in manual tasks and 30% error drop via product development.</li>
-        <li>Led 70+ member team for global consulting projects.</li>
-        <li>Built InfraSec tool cutting response time by 50%.</li>
-        <li>Designed and deployed enterprise security automation reducing turnaround by 40%.</li>
-        <li>Managed cross-timezone stakeholders and delivered reports to CXO-level clients.</li>
+        <li>Awarded Best Asset (Q2 2023) for delivering 20% efficiency improvement by automating critical workflows.</li>
+        <li>Finalist among 2,600+ peers in WatsonX Hackathon by building a Generative AI and LLM prototype with ROI potential.</li>
+        <li>Mentored 5 interns with structured delegation and training, achieving 100% full-time conversion.</li>
+        <li>Directed 3 full-cycle projects as point of contact for 10+ members and international clients.</li>
+        <li>Reduced manual effort by 10% and errors by 30% via business product development and process redesign.</li>
+        <li>Managed a 70+ member cross-functional team for international consulting execution.</li>
+        <li>Improved team capacity by 50% through operations tools for structured reviews and risk mitigation.</li>
+        <li>Delivered 25% ROI uplift via cost rationalisation and automation across 3 cross-border functions.</li>
+        <li>Improved forecast accuracy by 20% and reduced reporting cycle by 35% using Excel, Tableau, and Power BI dashboards.</li>
       </ul>
     </section>
 
     <!-- INTERNSHIPS -->
-    <section id="internships" class="resume-section">
+    <section id="internships" class="resume-section reveal">
       <h2>Internships</h2>
-      <div class="job-title"><span>Management Intern – Founder’s Office</span><span>LiquidMind.AI</span></div>
+      <div class="job-title"><span>Management Intern – Founder’s Office</span><span>LiquidMind.AI | Apr 2025 – May 2025</span></div>
       <ul>
-        <li>5.3x audience growth, 7x daily traffic via MetaSuite community expansion.</li>
-        <li>60+ qualified leads in Week 1 through targeted outreach.</li>
-        <li>Built financial models, GTM strategies, and managed multi-channel digital presence.</li>
-        <li>Designed dashboards for performance tracking and reporting to leadership.</li>
+        <li>Drove 5.3x audience and 4.3x follower growth with 7x traffic uplift via MetaSuite, LinkedIn SEO, and multi-platform execution.</li>
+        <li>Generated 60+ qualified leads in Week 1 through focused key-account outreach.</li>
+        <li>Built 50+ frameworks spanning pricing, cost breakdowns, market analysis, and value propositions.</li>
+        <li>Coordinated 5+ firms, 1 alliance, and 1 council across 6 priorities to improve capital efficiency.</li>
+        <li>Executed TAM/SAM/SOM sizing, ramp projections, and built 2 GTM strategies for regional expansion.</li>
+        <li>Onboarded 3 interns and spearheaded 3 product builds end-to-end from prototyping to testing.</li>
+        <li>Aligned 6 business verticals and curated 11+ finance/strategy articles to support execution readiness.</li>
+        <li>Led discussions across 9 business areas and collaborated directly with C-suite on feature and finance decisions.</li>
       </ul>
-      <div class="job-title"><span>Cyber Security Intern</span><span>IBM</span></div>
+      <div class="job-title"><span>Cyber Security Intern</span><span>IBM | Jan 2022 – Jul 2022</span></div>
       <ul>
-        <li>Commended for innovation in strategic product solutions.</li>
-        <li>Designed scalable product framework; delivered data-driven decision reports.</li>
-        <li>Automated reporting tools that reduced manual effort by 25%.</li>
+        <li>Executed a strategic product innovation and was commended by leadership for measurable impact.</li>
+        <li>Delivered &gt;90% business impact through automation scripting that reduced labor dependency.</li>
+        <li>Engineered an automation product adopted by 2+ teams for full-time internal use.</li>
       </ul>
     </section>
 
     <!-- CERTIFICATIONS -->
-    <section id="certifications" class="resume-section">
+    <section id="certifications" class="resume-section reveal">
       <h2>Certifications</h2>
       <ul>
-        <li>Sales Advanced – WatsonX Badge</li>
-        <li>IBM Data Science</li>
+        <li>Sales Advanced Badge (AI &amp; management proof-of-value engagements)</li>
         <li>Enterprise Design Thinking</li>
-        <li>IBM Agile Explorer</li>
+        <li>CFI Certification in Financial Statement Analysis</li>
+      </ul>
+    </section>
+
+
+    <section id="projects" class="resume-section reveal">
+      <h2>Live &amp; Academic Projects</h2>
+      <div class="job-title"><span>IAPM &amp; CRVA</span><span>Jul 2025 – Aug 2025</span></div>
+      <ul>
+        <li>Conducted valuation across 4 firms using FCF and multiples to design a risk-adjusted portfolio.</li>
+        <li>Built an equity research report with DCF, relative valuation, and ratio-driven analysis.</li>
+      </ul>
+      <div class="job-title"><span>Research for Marketing Decisions</span><span>Nov 2024 – Dec 2024</span></div>
+      <ul>
+        <li>Analyzed 230+ consumer responses using SPSS and AMOS, plus 2 FGDs and 8 interviews.</li>
+        <li>Processed 30+ studies, tested 9 hypotheses, and identified key behavioral drivers.</li>
       </ul>
     </section>
 
     <!-- POSITIONS OF RESPONSIBILITY -->
-    <section id="responsibilities" class="resume-section">
+    <section id="responsibilities" class="resume-section reveal">
       <h2>Positions of Responsibility</h2>
       <ul>
-        <li>Junior Placement Representative – Led corporate relations and 13 placement drives for 700+ candidates.</li>
-        <li>Club Coordinator – Managed ₹5L+ resources and institute-wide events.</li>
-        <li>Case Competition Mentor – Guided 4 winning teams in national-level events.</li>
+        <li>Selected among top 7% of 344 as Junior Placement Representative (2024–25), leading corporate outreach.</li>
+        <li>Coordinated the second-year student club in B.Tech, organizing events and resource planning.</li>
       </ul>
     </section>
 
     <!-- SKILLS -->
-    <section id="skills" class="resume-section">
+    <section id="skills" class="resume-section reveal">
       <h2>Skills</h2>
+      <div class="filter-row" aria-label="Skill filter controls">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="business">Business</button>
+        <button class="filter-btn" data-filter="tech">Tech</button>
+        <button class="filter-btn" data-filter="leadership">Leadership</button>
+      </div>
       <ul class="skills-grid">
-        <li>Finance</li>
-        <li>Marketing</li>
-        <li>Strategy</li>
-        <li>Operations</li>
-        <li>Management</li>
-        <li>Data Analysis</li>
-        <li>Project Management</li>
-        <li>Cross-Functional Leadership</li>
-        <li>Cybersecurity</li>
-        <li>GTM Strategy</li>
-        <li>Stakeholder Management</li>
-        <li>Process Automation</li>
+        <li data-category="business">Finance</li>
+        <li data-category="business">Marketing</li>
+        <li data-category="business">Strategy</li>
+        <li data-category="business">Operations</li>
+        <li data-category="leadership">Management</li>
+        <li data-category="tech">Data Analysis</li>
+        <li data-category="leadership">Project Management</li>
+        <li data-category="leadership">Cross-Functional Leadership</li>
+        <li data-category="tech">Cybersecurity</li>
+        <li data-category="business">GTM Strategy</li>
+        <li data-category="leadership">Stakeholder Management</li>
+        <li data-category="tech">Process Automation</li>
       </ul>
     </section>
 
+    <section id="journey" class="resume-section reveal journey">
+      <h2>Career Journey</h2>
+      <details open>
+        <summary>2024–Present: MBA @ IIM Visakhapatnam</summary>
+        <p>Focused on strategic decision making, leadership development, and high-impact case competitions.</p>
+      </details>
+      <details>
+        <summary>2022–2024: Security Specialist @ IBM</summary>
+        <p>Built automation tools, delivered enterprise security outcomes, and mentored interns into full-time roles.</p>
+      </details>
+      <details>
+        <summary>2021–2022: Internships & Product Prototyping</summary>
+        <p>Contributed to cybersecurity projects, dashboarding, and product-led experimentation in startup settings.</p>
+      </details>
+    </section>
+
     <!-- EXTRA-CURRICULAR -->
-    <section id="extracurricular" class="resume-section">
+    <section id="extracurricular" class="resume-section reveal">
       <h2>Extra-Curricular Activities</h2>
       <ul>
-        <li>1st & 3rd place in 4 national case competitions.</li>
-        <li>Mentored juniors; coordinated academic and co-curricular initiatives.</li>
-        <li>Led team at National Children’s Science Congress.</li>
-        <li>Organised inter-college cultural fest attracting 1,500+ participants.</li>
+        <li>Won War Room M&amp;A case competition (1st out of 371 teams) with valuation, synergy, and growth strategy.</li>
+        <li>Secured 3rd out of ~640 teams in Ranneeti (operations simulation, IIM Raipur).</li>
+        <li>Finished 3rd in finals and 7th in quiz at StrategiQ among 380 teams (IIM Raipur).</li>
+        <li>Achieved 4th in finals and 7th in Round 1 at SKEIN among 368 teams (IIM Udaipur).</li>
+        <li>Selected as 1 of 8 out of 240 peers to mentor juniors and coordinate academic/co-curricular initiatives.</li>
       </ul>
     </section>
 
     <!-- DOWNLOAD -->
-    <section id="download" class="resume-section">
+    <section id="download" class="resume-section reveal">
       <h2>Download Resume</h2>
       <p>You can download my resume in PDF format:</p>
       <a href="Sagar Makar_Master Resume (1).pdf" class="download-btn" target="_blank" rel="noopener">
-        <img src="logo.png" alt="" aria-hidden="true" /> <span>Download PDF</span>
+        <span aria-hidden="true">📄</span> <span>Download PDF</span>
       </a>
     </section>
   </main>
+
+  <button id="backToTop" aria-label="Scroll to top">↑</button>
 
   <!-- Footer -->
   <footer>
@@ -361,26 +656,38 @@
 
   <!-- Scripts -->
   <script>
-    // Scroll progress bar
-    window.addEventListener("scroll", function() {
-      let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      let scrolled = (winScroll / height) * 100;
-      document.getElementById("progressBar").style.width = scrolled + "%";
-    });
-
-    // Theme toggle
+    const backToTopBtn = document.getElementById('backToTop');
+    const progressBar = document.getElementById('progressBar');
     const toggleBtn = document.getElementById('themeToggle');
-    function updateToggleAppearance() {
-      toggleBtn.style.background = getComputedStyle(document.body).getPropertyValue('--toggle-bg');
-      toggleBtn.style.color = getComputedStyle(document.body).getPropertyValue('--toggle-text');
+
+    function updateProgress() {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      progressBar.style.width = scrolled + '%';
+      backToTopBtn.classList.toggle('show', winScroll > 320);
     }
+    window.addEventListener('scroll', updateProgress);
+    updateProgress();
+
+    backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    function applyTheme(mode) {
+      const isDark = mode === 'dark';
+      document.body.classList.toggle('dark', isDark);
+      toggleBtn.textContent = isDark ? '🌞' : '🌙';
+    }
+
+    let storedTheme = null;
+    try { storedTheme = localStorage.getItem('theme'); } catch (e) {}
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(storedTheme || (prefersDark ? 'dark' : 'light'));
+
     toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      toggleBtn.textContent = document.body.classList.contains('dark') ? '🌞' : '🌙';
-      updateToggleAppearance();
+      const nextTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      try { localStorage.setItem('theme', nextTheme); } catch (e) {}
     });
-    updateToggleAppearance();
   </script>
 
 </body>
