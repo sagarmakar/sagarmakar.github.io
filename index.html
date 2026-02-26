@@ -11,173 +11,129 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sagar Makar - Portfolio</title>
+  <title>Sagar Makar | IIM Visakhapatnam Portfolio</title>
   <link rel="icon" href="favicon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #f8f9fa;
+      --bg: #f3f4f6;
       --card: #ffffff;
-      --text: #212529;
-      --muted: #6c757d;
-      --accent: #007bff;
-      --border: #dee2e6;
-      --nav-bg: rgba(255, 255, 255, 0.9);
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+      --nav-bg: rgba(255, 255, 255, 0.85);
     }
 
-    /* Target the body for dark mode classes */
     body.dark-mode {
-      --bg: #121212;
-      --card: #1e1e1e;
-      --text: #e9ecef;
-      --muted: #adb5bd;
-      --accent: #3793ff;
-      --border: #333333;
-      --nav-bg: rgba(30, 30, 30, 0.9);
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
+      --border: #334155;
+      --nav-bg: rgba(15, 23, 42, 0.85);
     }
 
     * { box-sizing: border-box; scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
-      transition: background 0.3s, color 0.3s;
+      transition: background 0.4s ease;
       line-height: 1.6;
     }
 
     header {
       text-align: center;
-      padding: 50px 20px;
-      background: linear-gradient(135deg, #0056b3, #007bff);
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #1e40af, #2563eb);
       color: #fff;
       position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     }
 
     #themeToggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      border-radius: 50%;
-      width: 45px;
-      height: 45px;
-      cursor: pointer;
-      font-size: 1.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.2s;
+      position: absolute; top: 20px; right: 20px;
+      background: rgba(255, 255, 255, 0.15); border: none;
+      border-radius: 50%; width: 45px; height: 45px;
+      cursor: pointer; font-size: 1.2rem; display: flex;
+      align-items: center; justify-content: center; backdrop-filter: blur(5px);
     }
 
     .avatar {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid rgba(255,255,255,0.4);
-      margin: 15px auto;
-      display: block;
+      width: 130px; height: 130px; object-fit: cover;
+      border-radius: 50%; border: 4px solid rgba(255,255,255,0.3);
+      margin: 0 auto 15px; display: block;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
-    .links { margin-top: 15px; }
-    .links a { color: #fff; text-decoration: none; margin: 0 12px; font-weight: 700; opacity: 0.9; }
-
     .quick-nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      padding: 12px;
-      background: var(--nav-bg);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 1000;
+      display: flex; justify-content: center; gap: 15px;
+      padding: 15px; background: var(--nav-bg);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
     }
 
     .quick-nav a {
-      text-decoration: none;
-      color: var(--text);
-      padding: 8px 18px;
-      border-radius: 25px;
-      font-size: 13px;
-      font-weight: 700;
-      border: 1px solid var(--border);
-      transition: 0.3s;
+      text-decoration: none; color: var(--text); padding: 8px 16px;
+      border-radius: 8px; font-size: 13px; font-weight: 600; transition: 0.3s;
     }
-    .quick-nav a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .quick-nav a:hover { background: var(--accent); color: #fff; }
 
-    main.content {
-      max-width: 850px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
+    main.content { max-width: 900px; margin: 40px auto; padding: 0 20px; }
 
     section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 30px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      text-align: left;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 35px; margin-bottom: 30px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
     }
 
-    h2 { margin-top: 0; color: var(--accent); font-size: 1.4rem; margin-bottom: 20px; }
+    h2 { margin-top: 0; color: var(--accent); font-size: 1.5rem; letter-spacing: -0.025em; border-left: 4px solid var(--accent); padding-left: 15px; }
 
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+    .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+    .highlight-card { background: var(--bg); border-radius: 16px; padding: 25px; text-align: center; border: 1px solid var(--border); }
+    .highlight-value { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
+
+    .exp-item { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .exp-header { display: flex; justify-content: space-between; font-weight: 700; color: var(--accent); }
+    .exp-sub { font-size: 0.9rem; color: var(--muted); margin-bottom: 10px; display: block; }
+
+    /* Chat Bot Popup */
+    .whatsapp-container { position: fixed; bottom: 30px; right: 30px; z-index: 2000; display: flex; align-items: center; }
+    .chat-bubble {
+      background: var(--accent); color: white; padding: 12px 20px;
+      border-radius: 15px 15px 0 15px; margin-right: 15px;
+      font-size: 14px; font-weight: 600; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      opacity: 0; transform: translateX(20px); transition: 0.5s ease; pointer-events: none;
+    }
+    .chat-bubble.show { opacity: 1; transform: translateX(0); }
+    .whatsapp-btn {
+      background: #25D366; color: white; width: 60px; height: 60px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 30px; text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
 
-    .highlight-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
-    }
+    #progressBar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); width: 0%; z-index: 2001; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
+    .skills-grid li { background: var(--bg); padding: 8px 18px; border-radius: 10px; font-size: 13px; border: 1px solid var(--border); font-weight: 500; }
 
-    .highlight-value { font-size: 2rem; font-weight: 800; color: var(--accent); margin-bottom: 5px; }
-
-    .skills-grid { 
-      display: flex; flex-wrap: wrap; gap: 12px; list-style: none; padding: 0; 
-    }
-    .skills-grid li { 
-      background: var(--bg); padding: 10px 20px; border-radius: 30px; font-size: 14px; border: 1px solid var(--border);
-    }
-
-    .contact-form input, .contact-form textarea {
-      width: 100%; padding: 15px; border-radius: 10px; border: 1px solid var(--border); 
-      background: var(--bg); color: var(--text); margin-bottom: 15px; font-family: inherit;
-    }
-
-    .btn-submit {
-      background: var(--accent); color: white; border: none; padding: 15px; border-radius: 10px; 
-      font-weight: bold; width: 100%; cursor: pointer; transition: 0.2s;
-    }
-
-    .reveal { opacity: 0; transform: translateY(30px); transition: 0.6s ease-out; }
+    .reveal { opacity: 0; transform: translateY(30px); transition: 0.7s ease-out; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    #progressBar { position: fixed; top: 0; left: 0; height: 5px; background: var(--accent); width: 0%; z-index: 1001; }
-
-    .whatsapp-btn {
-      position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; 
-      width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; 
-      justify-content: center; font-size: 28px; text-decoration: none; box-shadow: 0 6px 15px rgba(0,0,0,0.2); z-index: 999;
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+    .contact-link { 
+        display: flex; align-items: center; justify-content: center; gap: 10px;
+        padding: 20px; background: var(--bg); border-radius: 15px; text-decoration: none;
+        color: var(--text); font-weight: 700; border: 1px solid var(--border); transition: 0.3s;
     }
-
-    footer { text-align: center; padding: 40px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 50px; }
+    .contact-link:hover { border-color: var(--accent); transform: translateY(-3px); }
 
     @media (max-width: 600px) {
-      .quick-nav { gap: 6px; padding: 10px; }
-      .quick-nav a { font-size: 11px; padding: 6px 12px; }
-      section { padding: 20px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .exp-header { flex-direction: column; }
     }
   </style>
 </head>
@@ -186,89 +142,115 @@
   <div id="progressBar"></div>
 
   <header>
-    <button id="themeToggle" title="Toggle Dark/Light Mode">🌓</button>
+    <button id="themeToggle">🌓</button>
     <img class="avatar" src="Sagar_Makar_2410323.jpeg" alt="Sagar Makar" />
     <h1>Sagar Makar</h1>
-    <p>M.B.A. '26 | Indian Institute of Management Visakhapatnam</p>
+    <p>M.B.A. Candidate 2024-26 | IIM Visakhapatnam</p>
     <div class="links">
-      <a href="mailto:sagar.makar24-01@iimv.ac.in">Email</a>
-      <a href="https://www.linkedin.com/in/sagarmakar" target="_blank">LinkedIn</a>
+        <span>Hisar, Haryana</span> • <span>Born: Jan 27, 2001</span>
     </div>
   </header>
 
   <nav class="quick-nav">
     <a href="#about">About</a>
-    <a href="#highlights">Impact</a>
+    <a href="#education">Education</a>
     <a href="#experience">Work</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+    <a href="#achievements">Impact</a>
+    <a href="#contact">Connect</a>
   </nav>
 
   <main class="content">
     <section id="about" class="reveal">
-      <h2>About</h2>
-      <p>Tier-1 B-School postgraduate with foundations in finance, marketing, strategy, and operations. Previously a Security Specialist at IBM, specializing in automation and efficiency optimization.</p>
+      <h2>Professional Summary</h2>
+      <p>MBA candidate at IIM Visakhapatnam with 21 months of experience at IBM as a Security Specialist. Expert in driving operational efficiency through automation, financial modeling, and strategic market expansion[cite: 5, 6, 11, 24].</p>
     </section>
 
-    <section id="highlights" class="reveal">
-      <h2>Professional Impact</h2>
-      <div class="highlights-grid">
-        <div class="highlight-card">
-          <div class="highlight-value" data-count="21">0</div>
-          <div>Months Experience</div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-value" data-count="70">0</div>
-          <div>Team Members Led</div>
-        </div>
-        <div class="highlight-card">
-          <div class="highlight-value" data-count="2600">0</div>
-          <div>Hackathon Peers</div>
-        </div>
+    <section id="education" class="reveal">
+      <h2>Educational Qualifications</h2>
+      <div class="exp-item">
+        <div class="exp-header"><span>Indian Institute of Management Visakhapatnam</span><span>CGPA: 3.38/4</span></div>
+        <span class="exp-sub">MBA | 2024 – 2026</span>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header"><span>NIIT University, Neemrana</span><span>CGPA: 7.97/10</span></div>
+        <span class="exp-sub">B.Tech in Electronics & Communication | 2018 – 2022</span>
+      </div>
+      <div class="exp-item">
+          <div class="exp-header"><span>Vijay Ratna Jr. College, Hyderabad</span><span>90.1%</span></div>
+          <span class="exp-sub">TSBIE - 12th | 2018</span>
       </div>
     </section>
 
     <section id="experience" class="reveal">
-      <h2>Work Experience</h2>
-      <div style="margin-bottom: 20px;">
-        <strong>Security Specialist | IBM</strong> <span style="float: right; color: var(--muted);">2022 – 2024</span>
+      <h2>Professional Experience</h2>
+      <div class="exp-item">
+        <div class="exp-header"><span>IBM | Security Specialist</span><span>2022 – 2024</span></div>
         <ul>
-          <li>Delivered 20% efficiency gains through critical workflow automation.</li>
-          <li>WatsonX Hackathon Finalist among 2,600+ participants.</li>
-          <li>Achieved 100% full-time conversion for mentored interns.</li>
+          <li>Awarded <strong>Best Asset Q2 2023</strong> for 20% efficiency improvement via workflow automation[cite: 11].</li>
+          <li>Managed a cross-functional team of <strong>70+ members</strong> for international consulting[cite: 14].</li>
+          <li>Finalist in WatsonX Hackathon among 2,600+ peers for GenAI/LLM prototype development[cite: 11, 12].</li>
         </ul>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header"><span>LiquidMind.AI | Management Intern</span><span>Apr – May 2025</span></div>
+        <ul>
+          <li>Generated <strong>60+ qualified leads</strong> in Week 1 through focused outreach[cite: 15].</li>
+          <li>Drove 5.3x audience growth and 7x traffic surge using LinkedIn SEO & MetaSuite[cite: 14].</li>
+          <li>Built 50+ frameworks for pricing models and market analysis[cite: 15].</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="achievements" class="reveal">
+      <h2>Key Achievements</h2>
+      <div class="highlights-grid">
+        <div class="highlight-card">
+          <div class="highlight-value">Winner</div>
+          <div>National M&A War Room (1/371 Teams) [cite: 35]</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-value">Top 7%</div>
+          <div>Junior Placement Representative [cite: 29]</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-value">3rd Place</div>
+          <div>Ranneeti Ops Simulation (IIM Raipur) [cite: 35]</div>
+        </div>
       </div>
     </section>
 
     <section id="skills" class="reveal">
       <h2>Core Competencies</h2>
       <ul class="skills-grid">
-        <li>Financial Modeling</li><li>Marketing Strategy</li><li>Data Science</li><li>Cybersecurity</li><li>Project Management</li>
+        <li>Financial Modeling (DCF/Multiples) [cite: 24]</li><li>GTM Strategy [cite: 15]</li><li>Tableau & Power BI [cite: 14]</li><li>Cybersecurity [cite: 19]</li><li>Python & R</li><li>M&A Valuation [cite: 35]</li>
       </ul>
     </section>
 
     <section id="contact" class="reveal">
-      <h2>Let's Talk</h2>
-      <form action="https://formspree.io/f/YOUR_ID" method="POST" class="contact-form">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email Address" required>
-        <textarea name="message" rows="4" placeholder="Message" required></textarea>
-        <button type="submit" class="btn-submit">Send Message</button>
-      </form>
+      <h2>Direct Connectivity</h2>
+      <p>I am actively seeking roles in Finance, Strategy, and Product Management. Let's discuss how I can contribute to your team.</p>
+      <div class="contact-grid">
+          <a href="mailto:sagar.makar24-01@iimv.ac.in" class="contact-link">📧 Email Me</a>
+          <a href="https://www.linkedin.com/in/sagarmakar" target="_blank" class="contact-link">🔗 LinkedIn Profile</a>
+      </div>
     </section>
   </main>
 
-  <a href="https://wa.me/+917673928580?text=Hi%20Sagar,%20I'd%20like%20to%20discuss%20a%20role..." class="whatsapp-btn" target="_blank">💬</a>
+  <div class="whatsapp-container">
+    <div class="chat-bubble" id="chatBubble">Hi! Got a job to offer? Connect now! 🚀</div>
+    <a href="https://wa.me/917673928580" class="whatsapp-btn" target="_blank">💬</a>
+  </div>
 
   <footer>
-    © 2026 Sagar Makar. Built with passion.
+    © 2026 Sagar Makar • IIM Visakhapatnam • Proudly Riding a Himalayan 411cc
   </footer>
 
   <script>
-    // Theme Logic - Fixed
     const body = document.body;
     const themeBtn = document.getElementById('themeToggle');
+    const chatBubble = document.getElementById('chatBubble');
 
+    // Theme Toggle
     themeBtn.addEventListener('click', () => {
       body.classList.toggle('dark-mode');
       const isDark = body.classList.contains('dark-mode');
@@ -276,46 +258,32 @@
       themeBtn.textContent = isDark ? '☀️' : '🌙';
     });
 
-    // Load saved theme
     if (localStorage.getItem('theme') === 'dark') {
       body.classList.add('dark-mode');
       themeBtn.textContent = '☀️';
     }
 
-    // Progress Bar
+    // 5-Second Chat Notification
+    setTimeout(() => {
+      chatBubble.classList.add('show');
+    }, 5000);
+
+    // Scroll Progress
     window.addEventListener("scroll", () => {
       const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       document.getElementById("progressBar").style.width = scrolled + "%";
     });
 
-    // Reveal Animation
+    // Intersection Observer for Reveal
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          entry.target.querySelectorAll('.highlight-value').forEach(v => animateCounter(v));
         }
       });
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    function animateCounter(el) {
-      if (el.dataset.done) return;
-      const target = +el.dataset.count;
-      let current = 0;
-      const step = target / 50;
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          el.textContent = target.toLocaleString();
-          el.dataset.done = true;
-          clearInterval(timer);
-        } else {
-          el.textContent = Math.floor(current).toLocaleString();
-        }
-      }, 20);
-    }
   </script>
 </body>
 </html>
