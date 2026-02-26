@@ -34,6 +34,8 @@
       --muted: #666;
       --accent: #0d6efd;
       --border: #e1e4eb;
+      --bg-elev: #ffffff;
+      --bg-elev-2: #f0f2f5;
     }
 
     body.dark, html.preload-dark body {
@@ -45,9 +47,6 @@
       --accent: #0d6efd;
       --accent-2: #5a9bff;
       --border: #2e2e2e;
-      --progress: #ffd700; /* Dark theme progress color */
-      --toggle-bg: #fff; /* Dark mode toggle button color */
-      --toggle-text: #000;
     }
 
     * { box-sizing: border-box; }
@@ -56,11 +55,12 @@
       font-family: 'Roboto', sans-serif;
       background: var(--bg);
       color: var(--text);
+      transition: background 0.3s ease;
     }
 
     header {
       text-align: center;
-      padding: 28px 16px;
+      padding: 40px 16px;
       background: linear-gradient(135deg, #0a58ca, #0d6efd);
       color: #fff;
       position: relative;
@@ -68,23 +68,28 @@
 
     #themeToggle {
       position: absolute;
-      top: 12px;
-      right: 16px;
+      top: 15px;
+      right: 15px;
       border: none;
-      border-radius: 999px;
-      padding: 8px 12px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
       cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .avatar {
-      width: 110px;
-      height: 110px;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #fff;
-      margin-top: 10px;
+      border: 4px solid #fff;
+      margin-top: 15px;
     }
-
 
     header.hero::after {
       content: "";
@@ -95,219 +100,138 @@
       pointer-events: none;
     }
 
-    .resume-section {
-      transition: background 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .resume-section:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(0,0,0,.12);
-    }
-    /* Contact Buttons */
-    .contact-btn {
-      display: inline-block;
-      padding: 6px 10px;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      font-size: 12px;
-      border-radius: 6px;
-      margin: 4px 6px;
-      transition: background 0.2s ease;
+    main.content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: 100vh;
     }
 
     section {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 16px;
-      margin: 14px 0;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     }
 
-    h2 {
-      margin-top: 0;
-      color: var(--accent);
-      font-size: 1.1rem;
-    }
+    h2 { margin-top: 0; color: var(--accent); font-size: 1.25rem; border-bottom: 2px solid var(--border); padding-bottom: 10px; }
 
-    .links a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 6px;
-      font-weight: 700;
-    }
+    .links a { color: #fff; text-decoration: none; margin: 0 10px; font-weight: 700; }
 
-    ul { margin: 0; padding-left: 18px; }
-    li { margin: 8px 0; }
+    ul { padding-left: 20px; }
+    li { margin: 10px 0; line-height: 1.5; }
 
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border: 1px solid var(--border); padding: 8px; text-align: left; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid var(--border); padding: 12px; text-align: left; }
     th { background: var(--accent); color: #fff; }
 
-    .job-title { display: flex; justify-content: space-between; font-weight: 700; margin-top: 12px; }
+    .job-title { display: flex; justify-content: space-between; font-weight: 700; margin-top: 15px; color: var(--accent); }
 
     .quick-nav {
       position: sticky;
-      top: 4px;
-      z-index: 9998;
+      top: 0;
+      z-index: 1000;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 8px;
-      padding: 10px 12px;
-      background: color-mix(in srgb, var(--bg-elev) 92%, transparent);
-      backdrop-filter: blur(6px);
+      gap: 10px;
+      padding: 12px;
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
     }
 
     .quick-nav a {
       text-decoration: none;
       color: var(--text);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
       border: 1px solid var(--border);
       background: var(--bg-elev);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-      transition: transform 0.2s, background 0.2s;
-    }
-    .quick-nav a:hover {
-      transform: translateY(-1px);
-      background: var(--bg-elev-2);
     }
 
     .highlights-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px;
-      margin-top: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
     }
 
     .highlight-card {
       text-align: center;
-      background: linear-gradient(140deg, var(--bg-elev-2), var(--bg-elev));
+      background: var(--bg-elev-2);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 14px;
-    }
-    .highlight-value {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 4px;
+      padding: 20px;
     }
 
-    .filter-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
+    .highlight-value { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
 
-    .filter-btn {
-      background: var(--bg-elev-2);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 6px 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 700;
+    .skills-grid { 
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 10px; 
+        list-style: none; 
+        padding: 0; 
     }
-    .filter-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: transparent;
-    }
-
-    .journey details {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 12px;
-      margin-bottom: 8px;
-      background: var(--bg-elev-2);
-    }
-    .journey summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: var(--accent);
+    .skills-grid li { 
+        background: var(--bg-elev-2); 
+        padding: 8px 15px; 
+        border-radius: 8px; 
+        font-size: 14px; 
+        border: 1px solid var(--border);
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 0.45s ease, transform 0.45s ease;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    .download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
+    #progressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
       background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.9em;
-    }
-    .download-btn:hover { background: var(--accent-2); }
-    .download-btn img { max-width: 20px; }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 12px;
-      background: var(--bg-elev);
-      border-top: 1px solid var(--border);
+      width: 0%;
+      z-index: 1001;
     }
 
     #backToTop {
       position: fixed;
-      right: 14px;
-      bottom: 16px;
+      bottom: 25px;
+      right: 25px;
+      width: 45px;
+      height: 45px;
+      background: var(--accent);
+      color: #fff;
       border: none;
       border-radius: 50%;
-      width: 42px;
-      height: 42px;
-      font-size: 18px;
-      color: #fff;
-      background: var(--accent);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s;
-    }
-    #backToTop.show {
-      opacity: 1;
-      pointer-events: auto;
+      display: none;
+      z-index: 1000;
+      font-size: 20px;
     }
 
-    /* Responsive Tweaks */
-    @media (max-width: 768px) {
-      .recruiter-grid { grid-template-columns: 1fr; }
-      header.hero h1 { font-size: 24px; }
-      header.hero p { font-size: 13px; }
-      .avatar { max-width: 90px; margin-top: 12px; }
-      .contact-btn { font-size: 11px; padding: 6px 8px; margin: 3px 4px; }
-      main.content { padding: 14px; }
-      .resume-section { padding: 16px; margin: 14px 0; }
-      .skills-grid { grid-template-columns: 1fr; }
-      table { display: block; overflow-x: auto; white-space: nowrap; }
-      #themeToggle { top: 8px; right: 8px; padding: 8px 10px; font-size: 1.4em; }
-    }
+    footer { text-align: center; padding: 40px; color: var(--muted); border-top: 1px solid var(--border); }
 
-    @media (max-width: 500px) {
-      .skills-grid li { padding: 8px; font-size: 14px; }
+    @media (max-width: 600px) {
+      .job-title { flex-direction: column; gap: 5px; }
+      .quick-nav { padding: 8px; gap: 5px; }
+      .quick-nav a { font-size: 11px; padding: 6px 10px; }
     }
   </style>
 </head>
 <body class="dark">
 
-  <!-- Top Banner -->
+  <div id="progressBar"></div>
+
   <header class="hero">
     <button id="themeToggle" aria-label="Toggle theme">🌞</button>
     <h1>Sagar Makar</h1>
@@ -315,305 +239,149 @@
     <div class="links">
       <a href="mailto:sagar.makar24-01@iimv.ac.in">Email</a>
       <a href="tel:+917673928580">Call</a>
-      <a href="https://www.linkedin.com/in/sagarmakar" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/sagarmakar" target="_blank">LinkedIn</a>
     </div>
     <img class="avatar" src="Sagar_Makar_2410323.jpeg" alt="Sagar Makar" />
   </header>
 
-  <!-- Progress Bar -->
-  <div id="progressContainer">
-    <div id="progressBar"></div>
-  </div>
-
-  <nav class="quick-nav" aria-label="Quick links">
+  <nav class="quick-nav">
     <a href="#about">About</a>
     <a href="#highlights">Highlights</a>
     <a href="#work-experience">Experience</a>
-    <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
-    <a href="#journey">Journey</a>
     <a href="#download">Resume</a>
   </nav>
 
-  <!-- Main Content -->
   <main class="content">
-    <!-- ABOUT -->
-    <section id="about" class="resume-section reveal">
+    <section id="about" class="reveal">
       <h2>About</h2>
       <p>Tier-1 B-School postgraduate with foundations in finance, marketing, strategy, and operations, with prior security and product development experience at IBM and startup execution exposure.</p>
     </section>
 
-    <section id="highlights" class="resume-section reveal">
+    <section id="highlights" class="reveal">
       <h2>Career Highlights</h2>
-      <p>Interactive snapshot of impact delivered across roles.</p>
       <div class="highlights-grid">
-        <article class="highlight-card">
+        <div class="highlight-card">
           <div class="highlight-value" data-count="21">0</div>
-          <div>Months of Experience</div>
-        </article>
-        <article class="highlight-card">
+          <div>Months Experience</div>
+        </div>
+        <div class="highlight-card">
           <div class="highlight-value" data-count="70">0</div>
           <div>Team Members Led</div>
-        </article>
-        <article class="highlight-card">
+        </div>
+        <div class="highlight-card">
           <div class="highlight-value" data-count="2600">0</div>
-          <div>Hackathon Peers Competed With</div>
-        </article>
-        <article class="highlight-card">
-          <div class="highlight-value" data-count="1500">0</div>
-          <div>Fest Participants Managed</div>
-        </article>
+          <div>Hackathon Peers</div>
+        </div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="resume-section reveal">
+    <section id="education" class="reveal">
       <h2>Education</h2>
       <table>
         <thead><tr><th>Degree</th><th>Institute</th><th>Score</th><th>Year</th></tr></thead>
         <tbody>
-          <tr><td>M.B.A.</td><td>Indian Institute of Management Visakhapatnam</td><td>3.18 / 4</td><td>2026</td></tr>
-          <tr><td>B. Tech. (ECE)</td><td>NIIT University, Neemrana</td><td>7.97 / 10</td><td>2018 – 2022</td></tr>
-          <tr><td>TSBIE - 12th</td><td>Vijay Ratna Jr. College, Hyderabad</td><td>90.1 / 100</td><td>2018</td></tr>
-          <tr><td>CBSE - 10th</td><td>Kendriya Vidyalaya No. 2, AFA Dundigal</td><td>9.8 / 10</td><td>2016</td></tr>
+          <tr><td>M.B.A.</td><td>IIM Visakhapatnam</td><td>3.18 / 4</td><td>2026</td></tr>
+          <tr><td>B. Tech. (ECE)</td><td>NIIT University</td><td>7.97 / 10</td><td>2022</td></tr>
         </tbody>
       </table>
     </section>
 
-    <!-- WORK EXPERIENCE -->
-    <section id="work-experience" class="resume-section reveal">
-      <h2>Work Experience (21 Months)</h2>
-      <div class="job-title"><span>Security Specialist</span><span>IBM | Sep 2022 – Jun 2024</span></div>
+    <section id="work-experience" class="reveal">
+      <h2>Work Experience</h2>
+      <div class="job-title"><span>Security Specialist</span><span>IBM | 2022 – 2024</span></div>
       <ul>
-        <li>Awarded Best Asset (Q2 2023) for delivering 20% efficiency improvement by automating critical workflows.</li>
-        <li>Finalist among 2,600+ peers in WatsonX Hackathon by building a Generative AI and LLM prototype with ROI potential.</li>
-        <li>Mentored 5 interns with structured delegation and training, achieving 100% full-time conversion.</li>
-        <li>Directed 3 full-cycle projects as point of contact for 10+ members and international clients.</li>
-        <li>Reduced manual effort by 10% and errors by 30% via business product development and process redesign.</li>
-        <li>Managed a 70+ member cross-functional team for international consulting execution.</li>
-        <li>Improved team capacity by 50% through operations tools for structured reviews and risk mitigation.</li>
-        <li>Delivered 25% ROI uplift via cost rationalisation and automation across 3 cross-border functions.</li>
-        <li>Improved forecast accuracy by 20% and reduced reporting cycle by 35% using Excel, Tableau, and Power BI dashboards.</li>
+        <li>Awarded Best Asset (Q2 2023) for delivering 20% efficiency improvement via automation.</li>
+        <li>Finalist in WatsonX Hackathon (2,600+ peers) for GenAI prototype.</li>
+        <li>Mentored 5 interns with 100% full-time conversion rate.</li>
       </ul>
     </section>
 
-    <!-- INTERNSHIPS -->
-    <section id="internships" class="resume-section reveal">
-      <h2>Internships</h2>
-      <div class="job-title"><span>Management Intern – Founder’s Office</span><span>LiquidMind.AI | Apr 2025 – May 2025</span></div>
-      <ul>
-        <li>Drove 5.3x audience and 4.3x follower growth with 7x traffic uplift via MetaSuite, LinkedIn SEO, and multi-platform execution.</li>
-        <li>Generated 60+ qualified leads in Week 1 through focused key-account outreach.</li>
-        <li>Built 50+ frameworks spanning pricing, cost breakdowns, market analysis, and value propositions.</li>
-        <li>Coordinated 5+ firms, 1 alliance, and 1 council across 6 priorities to improve capital efficiency.</li>
-        <li>Executed TAM/SAM/SOM sizing, ramp projections, and built 2 GTM strategies for regional expansion.</li>
-        <li>Onboarded 3 interns and spearheaded 3 product builds end-to-end from prototyping to testing.</li>
-      </ul>
-      <div class="job-title"><span>Cyber Security Intern</span><span>IBM | Jan 2022 – Jul 2022</span></div>
-      <ul>
-        <li>Executed a strategic product innovation and was commended by leadership for measurable impact.</li>
-        <li>Delivered &gt;90% business impact through automation scripting that reduced labor dependency.</li>
-        <li>Engineered an automation product adopted by 2+ teams for full-time internal use.</li>
-      </ul>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="resume-section reveal">
-      <h2>Certifications</h2>
-      <ul>
-        <li>Sales Advanced Badge (AI &amp; management proof-of-value engagements)</li>
-        <li>Enterprise Design Thinking</li>
-        <li>CFI Certification in Financial Statement Analysis</li>
-      </ul>
-    </section>
-
-
-    <section id="projects" class="resume-section reveal">
-      <h2>Live &amp; Academic Projects</h2>
-      <div class="job-title"><span>IAPM &amp; CRVA</span><span>Jul 2025 – Aug 2025</span></div>
-      <ul>
-        <li>Conducted valuation across 4 firms using FCF and multiples to design a risk-adjusted portfolio.</li>
-        <li>Built an equity research report with DCF, relative valuation, and ratio-driven analysis.</li>
-      </ul>
-      <div class="job-title"><span>Research for Marketing Decisions</span><span>Nov 2024 – Dec 2024</span></div>
-      <ul>
-        <li>Analyzed 230+ consumer responses using SPSS and AMOS, plus 2 FGDs and 8 interviews.</li>
-        <li>Processed 30+ studies, tested 9 hypotheses, and identified key behavioral drivers.</li>
-      </ul>
-    </section>
-
-    <!-- POSITIONS OF RESPONSIBILITY -->
-    <section id="responsibilities" class="resume-section reveal">
-      <h2>Positions of Responsibility</h2>
-      <ul>
-        <li>Selected among top 7% of 344 as Junior Placement Representative (2024–25), leading corporate outreach.</li>
-        <li>Coordinated the second-year student club in B.Tech, organizing events and resource planning.</li>
-      </ul>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="resume-section reveal">
+    <section id="skills" class="reveal">
       <h2>Skills</h2>
-      <div class="filter-row" aria-label="Skill filter controls">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="business">Business</button>
-        <button class="filter-btn" data-filter="tech">Tech</button>
-        <button class="filter-btn" data-filter="leadership">Leadership</button>
-      </div>
       <ul class="skills-grid">
-        <li data-category="business">Finance</li>
-        <li data-category="business">Marketing</li>
-        <li data-category="business">Strategy</li>
-        <li data-category="business">Operations</li>
-        <li data-category="leadership">Management</li>
-        <li data-category="tech">Data Analysis</li>
-        <li data-category="leadership">Project Management</li>
-        <li data-category="leadership">Cross-Functional Leadership</li>
-        <li data-category="tech">Cybersecurity</li>
-        <li data-category="business">GTM Strategy</li>
-        <li data-category="leadership">Stakeholder Management</li>
-        <li data-category="tech">Process Automation</li>
+        <li>Finance</li><li>Marketing</li><li>Strategy</li><li>Data Analysis</li><li>Cybersecurity</li><li>GTM Strategy</li>
       </ul>
     </section>
 
-    <section id="journey" class="resume-section reveal journey">
-      <h2>Career Journey</h2>
-      <details open>
-        <summary>2024–Present: MBA @ IIM Visakhapatnam</summary>
-        <p>Focused on strategic decision making, leadership development, and high-impact case competitions.</p>
-      </details>
-      <details>
-        <summary>2022–2024: Security Specialist @ IBM</summary>
-        <p>Built automation tools, delivered enterprise security outcomes, and mentored interns into full-time roles.</p>
-      </details>
-      <details>
-        <summary>2021–2022: Internships & Product Prototyping</summary>
-        <p>Contributed to cybersecurity projects, dashboarding, and product-led experimentation in startup settings.</p>
-      </details>
-    </section>
-
-    <!-- EXTRA-CURRICULAR -->
-    <section id="extracurricular" class="resume-section reveal">
-      <h2>Extra-Curricular Activities</h2>
-      <ul>
-        <li>Won War Room M&amp;A case competition (1st out of 371 teams) with valuation, synergy, and growth strategy.</li>
-        <li>Secured 3rd out of ~640 teams in Ranneeti (operations simulation, IIM Raipur).</li>
-        <li>Finished 3rd in finals and 7th in quiz at StrategiQ among 380 teams (IIM Raipur).</li>
-        <li>Achieved 4th in finals and 7th in Round 1 at SKEIN among 368 teams (IIM Udaipur).</li>
-        <li>Selected as 1 of 8 out of 240 peers to mentor juniors and coordinate academic/co-curricular initiatives.</li>
-      </ul>
-    </section>
-
-    <!-- DOWNLOAD -->
-    <section id="download" class="resume-section reveal">
-      <h2>Download Resume</h2>
-      <p>You can download my resume in PDF format:</p>
-      <a href="Sagar Makar_Master Resume (1).pdf" class="download-btn" target="_blank" rel="noopener">
-        <span aria-hidden="true">📄</span> <span>Download PDF</span>
-      </a>
+    <section id="download" class="reveal" style="text-align: center;">
+      <h2>Resume</h2>
+      <a href="Sagar Makar_Master Resume (1).pdf" class="download-btn" style="background:var(--accent); color:#fff; padding:12px 24px; text-decoration:none; border-radius:8px; display:inline-block; font-weight:bold;">📄 Download PDF</a>
     </section>
   </main>
 
-  <button id="backToTop" aria-label="Scroll to top">↑</button>
+  <button id="backToTop">↑</button>
 
-  <!-- Footer -->
   <footer>
-    © 2025 Sagar Makar. All rights reserved.
+    © 2026 Sagar Makar. All rights reserved.
   </footer>
 
   <script>
-    const backToTopBtn = document.getElementById('backToTop');
+    const themeToggle = document.getElementById('themeToggle');
+    const progressBar = document.getElementById('progressBar');
+    const backToTop = document.getElementById('backToTop');
+    const prefersDarkMedia = window.matchMedia('(prefers-color-scheme: dark)');
 
-    // Scroll progress bar + back to top toggle
-    window.addEventListener("scroll", function() {
-      let winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    // 1. Theme Logic Fixed
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.body.classList.add('dark');
+        themeToggle.textContent = '🌞';
+      } else {
+        document.body.classList.remove('dark');
+        themeToggle.textContent = '🌙';
+      }
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark');
+      themeToggle.textContent = isDark ? '🌞' : '🌙';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    const savedTheme = localStorage.getItem('theme') || (prefersDarkMedia.matches ? 'dark' : 'light');
+    applyTheme(savedTheme);
+
+    // 2. Scroll Logic Fixed
+    window.addEventListener("scroll", () => {
+      let winScroll = document.documentElement.scrollTop;
       let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       let scrolled = (winScroll / height) * 100;
-      document.getElementById("progressBar").style.width = scrolled + "%";
-      backToTopBtn.classList.toggle('show', winScroll > 320);
+      progressBar.style.width = scrolled + "%";
+      backToTop.style.display = winScroll > 320 ? 'block' : 'none';
     });
 
-    backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Theme toggle
-    const toggleBtn = document.getElementById('themeToggle');
-
-    function updateProgress() {
-      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-      progressBar.style.width = scrolled + '%';
-      backToTopBtn.classList.toggle('show', winScroll > 320);
-    }
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'light') {
-      document.body.classList.remove('dark');
-      toggleBtn.textContent = '🌙';
-    } else {
-      document.body.classList.add('dark');
-      toggleBtn.textContent = '🌞';
-    }
-
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      toggleBtn.textContent = document.body.classList.contains('dark') ? '🌞' : '🌙';
-      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-      updateToggleAppearance();
-    }
-
-    const initialTheme = storedTheme || (prefersDarkMedia.matches ? 'dark' : 'light');
-    applyTheme(initialTheme);
-
-    prefersDarkMedia.addEventListener('change', event => {
-      if (!localStorage.getItem('theme')) {
-        applyTheme(event.matches ? 'dark' : 'light');
-      }
-    });
-    updateToggleAppearance();
-
-    // Skill filters
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const skillItems = document.querySelectorAll('.skills-grid li');
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        const target = button.dataset.filter;
-
-        skillItems.forEach(item => {
-          const show = target === 'all' || item.dataset.category === target;
-          item.style.display = show ? 'block' : 'none';
-        });
-      });
-    });
-
-    // Reveal animation
-    const revealElements = document.querySelectorAll('.reveal');
+    // 3. Reveal Animation with Counter Trigger
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          const counters = entry.target.querySelectorAll('.highlight-value');
+          counters.forEach(c => animateCounter(c));
         }
       });
-    }, { threshold: 0.12 });
-    revealElements.forEach(el => observer.observe(el));
+    }, { threshold: 0.15 });
 
-    // Count up animation
-    const counters = document.querySelectorAll('[data-count]');
-    counters.forEach(counter => {
-      const target = Number(counter.dataset.count);
-      const step = Math.max(1, Math.floor(target / 35));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function animateCounter(el) {
+      if (el.classList.contains('done')) return;
+      const target = +el.getAttribute('data-count');
       let current = 0;
+      const step = target / 40;
       const timer = setInterval(() => {
         current += step;
         if (current >= target) {
-          current = target;
+          el.textContent = target.toLocaleString();
+          el.classList.add('done');
           clearInterval(timer);
+        } else {
+          el.textContent = Math.floor(current).toLocaleString();
         }
-        counter.textContent = current.toLocaleString();
       }, 25);
-    });
+    }
   </script>
 </body>
 </html>
