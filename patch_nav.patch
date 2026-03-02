@@ -1,0 +1,58 @@
+<<<<<<< SEARCH
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-links {
+=======
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .call-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .call-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .call-btn:hover {
+      color: var(--accent-color);
+    }
+
+    #themeToggle {
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #themeToggle:hover {
+      background-color: var(--bg-secondary);
+      border-color: var(--text-secondary);
+    }
+
+    .nav-links {
+>>>>>>> REPLACE
