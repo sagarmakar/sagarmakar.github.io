@@ -1,0 +1,3 @@
+## 2024-03-02 - ARIA Labels for Icon-Only Buttons
+**Learning:** Icon-only interactive elements (like the theme toggle and WhatsApp link) in this portfolio were missing descriptive labels, making them inaccessible to screen readers.
+**Action:** Always verify that buttons or links containing only emojis or icons have appropriate `aria-label` attributes to ensure keyboard and screen reader accessibility.
