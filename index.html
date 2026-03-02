@@ -70,10 +70,139 @@
       border-radius: 4px;
     }
 
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 12px 24px;
+      z-index: 3000;
+      font-weight: 600;
+      border-radius: 0 0 8px 0;
+      transition: top 0.2s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
     .container {
       max-width: 900px;
       margin: 0 auto;
       padding: 0 24px;
+    }
+
+
+    /* --- Boxed & Columned Layout Styles --- */
+    .boxed-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    /* 2-Column Experience Layout */
+    .exp-box {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 32px;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-box:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    .exp-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .exp-role {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+    }
+    .exp-company {
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    .exp-date {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .exp-bullets {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .exp-bullets li {
+      margin-bottom: 8px;
+    }
+    .exp-bullets strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Tabled Education Layout */
+    .edu-table-container {
+      width: 100%;
+      overflow-x: auto;
+    }
+    .edu-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .edu-table th, .edu-table td {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .edu-table th {
+      font-weight: 600;
+      color: var(--text-primary);
+      background-color: var(--surface);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .edu-table td {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+    .edu-table tr:last-child td {
+      border-bottom: none;
+    }
+    .edu-table tr:hover td {
+      background-color: var(--bg);
+    }
+    .edu-school {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 768px) {
+      .exp-box {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .boxed-section {
+        padding: 24px 16px;
+      }
+      .edu-table th, .edu-table td {
+        padding: 12px 8px;
+      }
     }
 
     /* Navigation */
@@ -509,6 +638,7 @@
   </style>
 </head>
 <body class="light-mode">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="progressBar"></div>
 
   <div class="nav-wrapper">
@@ -561,7 +691,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1" style="outline: none;">
       <section id="experience" class="reveal">
         <div class="section-header">
           <h3>Professional Experience</h3>
@@ -621,26 +751,34 @@
           <h3>Education</h3>
         </div>
 
-        <div class="timeline-item" style="margin-bottom: 24px;">
-          <div class="timeline-header" style="margin-bottom: 4px;">
-            <span class="timeline-role" style="font-size: 1rem;">Indian Institute of Management Visakhapatnam</span>
-            <span class="timeline-date">2024 – 2026</span>
-          </div>
-          <div style="color: var(--text-secondary); font-size: 0.95rem;">
-            MBA Candidate • CGPA: 3.38/4.00
+        <div class="boxed-section" style="padding: 0;">
+          <div class="edu-table-container">
+            <table class="edu-table">
+              <thead>
+                <tr>
+                  <th>Institution</th>
+                  <th>Degree / Program</th>
+                  <th>Year</th>
+                  <th>GPA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="edu-school">Indian Institute of Management Visakhapatnam</td>
+                  <td>MBA Candidate</td>
+                  <td>2024 – 2026</td>
+                  <td><strong>3.38</strong> / 4.00</td>
+                </tr>
+                <tr>
+                  <td class="edu-school">NIIT University, Neemrana</td>
+                  <td>B.Tech in ECE</td>
+                  <td>2018 – 2022</td>
+                  <td><strong>7.97</strong> / 10.00</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-
-        <div class="timeline-item" style="margin-bottom: 24px;">
-          <div class="timeline-header" style="margin-bottom: 4px;">
-            <span class="timeline-role" style="font-size: 1rem;">NIIT University, Neemrana</span>
-            <span class="timeline-date">2018 – 2022</span>
-          </div>
-          <div style="color: var(--text-secondary); font-size: 0.95rem;">
-            B.Tech in ECE • CGPA: 7.97/10.00
-          </div>
-        </div>
-
       </section>
 
       <section id="skills" class="reveal">
@@ -648,26 +786,28 @@
           <h3>Core Competencies & Expertise</h3>
         </div>
 
-        <div class="skills-group">
-          <h4>Finance & Valuation</h4>
-          <div class="skills-tags">
-            <span class="skill-tag">Financial Modeling & Valuation</span>
-            <span class="skill-tag">TAM/SAM/SOM Market Sizing</span>
-            <span class="skill-tag">Cost Rationalization</span>
-            <span class="skill-tag">Corporate Finance Strategy</span>
-            <span class="skill-tag">Investment & Pricing Strategy</span>
-            <span class="skill-tag">M&A Analytics</span>
+        <div class="boxed-section">
+          <div class="skills-group" style="margin-bottom: 24px;">
+            <h4 style="margin-bottom: 16px; color: var(--text-primary); border-bottom: 1px solid var(--border); padding-bottom: 8px;">Finance & Valuation</h4>
+            <div class="skills-tags">
+              <span class="skill-tag">Financial Modeling & Valuation</span>
+              <span class="skill-tag">TAM/SAM/SOM Market Sizing</span>
+              <span class="skill-tag">Cost Rationalization</span>
+              <span class="skill-tag">Corporate Finance Strategy</span>
+              <span class="skill-tag">Investment & Pricing Strategy</span>
+              <span class="skill-tag">M&A Analytics</span>
+            </div>
           </div>
-        </div>
 
-        <div class="skills-group">
-          <h4>Analytical & Strategic</h4>
-          <div class="skills-tags">
-            <span class="skill-tag">SQL & Data Mining</span>
-            <span class="skill-tag">Generative AI (WatsonX)</span>
-            <span class="skill-tag">Cross-functional Team Leadership</span>
-            <span class="skill-tag">Enterprise Design Thinking</span>
-            <span class="skill-tag">Quantitative Risk Evaluation</span>
+          <div class="skills-group">
+            <h4 style="margin-bottom: 16px; color: var(--text-primary); border-bottom: 1px solid var(--border); padding-bottom: 8px;">Analytical & Strategic</h4>
+            <div class="skills-tags">
+              <span class="skill-tag">SQL & Data Mining</span>
+              <span class="skill-tag">Generative AI (WatsonX)</span>
+              <span class="skill-tag">Cross-functional Team Leadership</span>
+              <span class="skill-tag">Enterprise Design Thinking</span>
+              <span class="skill-tag">Quantitative Risk Evaluation</span>
+            </div>
           </div>
         </div>
       </section>
@@ -677,30 +817,35 @@
           <h3>Key Achievements & Leadership</h3>
         </div>
 
-        <div class="achievement-grid" style="margin-bottom: 32px;">
-          <div class="achievement-card">
-            <h4>Winner</h4>
-            <p>National M&A War Room (Ranked 1st of 371 teams)</p>
+        <div class="boxed-section">
+          <div class="achievement-grid" style="margin-bottom: 32px;">
+            <div class="achievement-card" style="background: var(--bg); border: 1px solid var(--border);">
+              <h4>Winner</h4>
+              <p>National M&A War Room (Ranked 1st of 371 teams)</p>
+            </div>
+            <div class="achievement-card" style="background: var(--bg); border: 1px solid var(--border);">
+              <h4>Top 7%</h4>
+              <p>Junior Placement Representative Selection (23/344)</p>
+            </div>
+            <div class="achievement-card" style="background: var(--bg); border: 1px solid var(--border);">
+              <h4>3rd Place</h4>
+              <p>Ranneeti Operations Simulation (IIM Raipur)</p>
+            </div>
           </div>
-          <div class="achievement-card">
-            <h4>Top 7%</h4>
-            <p>Junior Placement Representative Selection (23/344)</p>
-          </div>
-          <div class="achievement-card">
-            <h4>3rd Place</h4>
-            <p>Ranneeti Operations Simulation (IIM Raipur)</p>
-          </div>
-        </div>
 
-        <div class="timeline-item">
-          <div class="timeline-header" style="margin-bottom: 4px;">
-            <span class="timeline-role" style="font-size: 1rem;">Junior Placement Representative</span>
-            <span class="timeline-company"> | IIM Visakhapatnam</span>
+          <div class="exp-box" style="border-top: 1px solid var(--border); padding-top: 24px;">
+            <div class="exp-meta">
+              <span class="exp-role">Junior Placement Representative</span>
+              <span class="exp-company">IIM Visakhapatnam</span>
+              <span class="exp-date">2024 – Present</span>
+            </div>
+            <div class="exp-content">
+              <ul class="exp-bullets">
+                <li>Forged critical corporate relations and steered industry outreach pipelines to broaden long-term institutional hiring partnerships.</li>
+                <li>Administered 13 extensive placement drives for 700+ PGP candidates, facilitating rigorous corporate assessments and candidate evaluation metrics.</li>
+              </ul>
+            </div>
           </div>
-          <ul class="timeline-list" style="margin-top: 8px;">
-            <li>Forged critical corporate relations and steered industry outreach pipelines to broaden long-term institutional hiring partnerships.</li>
-            <li>Administered 13 extensive placement drives for 700+ PGP candidates, facilitating rigorous corporate assessments and candidate evaluation metrics.</li>
-          </ul>
         </div>
       </section>
 
