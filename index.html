@@ -23,7 +23,9 @@
       --text-primary: #111827;
       --text-secondary: #4b5563;
       --border: #e5e7eb;
-      --accent: #1e3a8a; /* Deep Navy */
+      --accent: #2563eb; /* Strong Blue */
+      --finance-green: #10b981; /* Success */
+      --terminal-bg: #0f172a;
       --accent-hover: #1e40af;
       --nav-bg: rgba(255, 255, 255, 0.95);
       --focus-ring: rgba(30, 58, 138, 0.5);
@@ -195,11 +197,48 @@
         gap: 16px;
       }
       .boxed-section {
-        padding: 16px 0;
+        padding: 24px 16px;
       }
       .edu-table th, .edu-table td {
         padding: 12px 8px;
       }
+    }
+
+
+    /* Financial Ticker Bar */
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background-color: var(--terminal-bg);
+      padding: 8px 0;
+      color: #38bdf8;
+      font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 0.85rem;
+      border-bottom: 1px solid #334155;
+      position: relative;
+      z-index: 2000;
+    }
+    .ticker-move {
+      display: inline-block;
+      white-space: nowrap;
+      padding-right: 100%;
+      box-sizing: content-box;
+      animation: ticker 25s linear infinite;
+    }
+    .ticker-move:hover {
+      animation-play-state: paused;
+    }
+    @keyframes ticker {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-100%, 0, 0); }
+    }
+    .ticker-item {
+      display: inline-block;
+      padding: 0 2rem;
+    }
+    .ticker-item span {
+      color: var(--finance-green);
+      font-weight: bold;
     }
 
     /* Navigation */
@@ -389,6 +428,189 @@
     .btn-secondary:hover {
       background: var(--surface);
       color: var(--text-primary);
+    }
+
+
+    /* Bloomberg Terminal Component */
+    .bloomberg-terminal {
+      background-color: var(--terminal-bg);
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 24px;
+      font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+      color: #38bdf8;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .terminal-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .terminal-header span.live {
+      color: var(--finance-green);
+      font-weight: bold;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+    .terminal-line { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.5; }
+    .terminal-line .cmd { color: #facc15; }
+    .terminal-line .val { color: var(--finance-green); font-weight: bold; }
+
+    /* Flash Card Component */
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      perspective: 1000px;
+    }
+    .flashcard {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .flashcard::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 4px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .flashcard:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px -10px rgba(0,0,0,0.1);
+      border-color: var(--accent);
+    }
+    .flashcard:hover::before { transform: scaleX(1); }
+    .flashcard h4 {
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .flashcard p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+    .flashcard .metric {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 6px 16px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent);
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-content {
+      background: var(--surface);
+      padding: 40px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 450px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+    .modal-header h3 {
+      margin-bottom: 8px;
+    }
+    .modal-header p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .modal-actions button {
+      flex: 1;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-cancel {
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      border-radius: 6px;
+      font-weight: 500;
+    }
+    .btn-submit {
+      padding: 10px 20px;
+      background: var(--text-primary);
+      border: 1px solid transparent;
+      color: var(--bg);
+      border-radius: 6px;
+      font-weight: 500;
     }
 
     /* Main Content Sections */
@@ -647,6 +869,17 @@
   </style>
 </head>
 <body class="light-mode">
+
+  <div class="ticker-wrap">
+    <div class="ticker-move">
+      <div class="ticker-item">WINNER: <span>National M&A War Room (1/371)</span> 📈</div>
+      <div class="ticker-item">AWARD: <span>Best Asset Q2 2023 @ IBM</span> 🚀</div>
+      <div class="ticker-item">METRIC: <span>7x Boost via Data-Driven Utilization</span> 📊</div>
+      <div class="ticker-item">RANK: <span>Top 7% (23/344) Junior Placement Rep</span> 🎯</div>
+      <div class="ticker-item">FINALIST: <span>WatsonX Hackathon (Top Tier of 2600+)</span> 💡</div>
+    </div>
+  </div>
+
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div id="progressBar"></div>
 
@@ -701,6 +934,24 @@
     </header>
 
     <main id="main-content" tabindex="-1" style="outline: none;">
+
+      <section id="key-stats" class="reveal">
+        <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; text-align: center; padding: 40px 0;">
+          <div>
+            <div style="font-size: 3rem; font-weight: 700; color: var(--finance-green); font-family: 'SF Mono', monospace;">70+</div>
+            <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Members Managed</div>
+          </div>
+          <div style="border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+            <div style="font-size: 3rem; font-weight: 700; color: var(--finance-green); font-family: 'SF Mono', monospace;">2600+</div>
+            <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Peers Outranked</div>
+          </div>
+          <div>
+            <div style="font-size: 3rem; font-weight: 700; color: var(--finance-green); font-family: 'SF Mono', monospace;">60+</div>
+            <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Leads Generated</div>
+          </div>
+        </div>
+      </section>
+
       <section id="experience" class="reveal">
         <div class="section-header">
           <h3>Professional Experience</h3>
@@ -790,6 +1041,75 @@
         </div>
       </section>
 
+
+      <section id="projects" class="reveal" style="margin-bottom: 3rem;">
+        <div class="section-header">
+          <h3>Academic & Projects</h3>
+        </div>
+        <div class="exp-box" style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+          <div class="exp-card" style="padding: 2rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
+              <h4 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">IAPM & CRVA</h4>
+              <span style="font-size: 0.875rem; color: var(--text-secondary);">Academic Project</span>
+            </div>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+              Spearheaded comprehensive financial evaluation focusing on <strong>Fundamental Analysis</strong> and <strong>DCF Modeling</strong>.
+            </p>
+            <ul style="list-style-type: disc; margin-left: 1.5rem; color: var(--text-primary); font-size: 0.95rem; line-height: 1.6;">
+              <li>Conducted robust fundamental analysis to evaluate intrinsic asset values and identify mispriced equities.</li>
+              <li>Engineered advanced Discounted Cash Flow (DCF) models, integrating multi-stage growth projections and rigorous WACC calculations.</li>
+              <li>Delivered actionable investment theses and equity research reports to optimize portfolio allocation and risk-adjusted returns.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications" class="reveal" style="margin-bottom: 3rem;">
+        <div class="section-header">
+          <h3>Interactive Certifications</h3>
+        </div>
+        <div class="exp-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+
+          <div class="cert-card interactive-cert" onclick="toggleCert(this)" style="cursor: pointer; padding: 1.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h4 style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin: 0;">CFI Financial Statement Analysis</h4>
+              <span style="color: var(--finance-green); font-size: 1.2rem;">+</span>
+            </div>
+            <div class="cert-details" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+              Mastered the ability to read and analyze financial statements (Income Statement, Balance Sheet, Cash Flow). Developed skills to evaluate liquidity, solvency, and profitability metrics to assess corporate financial health.
+            </div>
+          </div>
+
+          <div class="cert-card interactive-cert" onclick="toggleCert(this)" style="cursor: pointer; padding: 1.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h4 style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin: 0;">Enterprise Design Thinking</h4>
+              <span style="color: var(--finance-green); font-size: 1.2rem;">+</span>
+            </div>
+            <div class="cert-details" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+              Acquired framework methodologies to solve complex problems through user-centric design. Demonstrated ability to facilitate cross-functional alignment and accelerate project delivery through iterative prototyping.
+            </div>
+          </div>
+
+        </div>
+        <script>
+          function toggleCert(el) {
+            const details = el.querySelector('.cert-details');
+            const icon = el.querySelector('span');
+            if (details.style.display === 'none') {
+              details.style.display = 'block';
+              icon.textContent = '-';
+              el.style.borderColor = 'var(--finance-green)';
+              el.style.boxShadow = '0 4px 12px rgba(46, 204, 113, 0.1)';
+            } else {
+              details.style.display = 'none';
+              icon.textContent = '+';
+              el.style.borderColor = 'var(--border)';
+              el.style.boxShadow = 'none';
+            }
+          }
+        </script>
+      </section>
+
       <section id="skills" class="reveal">
         <div class="section-header">
           <h3>Core Competencies & Expertise</h3>
@@ -826,21 +1146,38 @@
           <h3>Key Achievements & Leadership</h3>
         </div>
 
-        <div class="boxed-section">
-          <div class="achievement-grid" style="margin-bottom: 32px;">
-            <div class="achievement-card" style="background: var(--bg); border: 1px solid var(--border);">
-              <h4>Winner</h4>
-              <p>National M&A War Room (Ranked 1st of 371 teams)</p>
-            </div>
-            <div class="achievement-card" style="background: var(--bg); border: 1px solid var(--border);">
-              <h4>Top 7%</h4>
-              <p>Junior Placement Representative Selection (23/344)</p>
-            </div>
-            <div class="achievement-card" style="background: var(--bg); border: 1px solid var(--border);">
-              <h4>3rd Place</h4>
-              <p>Ranneeti Operations Simulation (IIM Raipur)</p>
-            </div>
+        <!-- Bloomberg Terminal Style Component -->
+        <div class="bloomberg-terminal">
+          <div class="terminal-header">
+            <span>SAGAR MAKAR EQUITY RESEARCH & IB // TOP ACHIEVEMENTS</span>
+            <span class="live">● LIVE</span>
           </div>
+          <div class="terminal-line"><span class="cmd">&gt; EXECUTE query --top-metrics</span></div>
+          <div class="terminal-line">[SYS] Loading career alpha... DONE.</div>
+          <div class="terminal-line">>> <strong>NATIONAL M&A WAR ROOM:</strong> <span class="val">RANK 1 OUT OF 371 TEAMS</span> (WINNER)</div>
+          <div class="terminal-line">>> <strong>JUNIOR PLACEMENT REP SELECTION:</strong> <span class="val">TOP 7%</span> (23/344)</div>
+          <div class="terminal-line">>> <strong>RANNEETI OPERATIONS SIMULATION (IIM RAIPUR):</strong> <span class="val">3RD PLACE</span></div>
+          <div class="terminal-line"><span class="cmd">&gt; _</span></div>
+        </div>
+
+        <!-- Flash Card Format -->
+        <div class="flashcard-grid" style="margin-bottom: 32px;">
+          <div class="flashcard">
+            <h4>National M&A War Room</h4>
+            <p>Demonstrated superior valuation methodologies and strategic synergy analysis.</p>
+            <span class="metric">Ranked 1st of 371 teams</span>
+          </div>
+          <div class="flashcard">
+            <h4>JPR Selection</h4>
+            <p>Selected to represent the PGP batch for corporate relations and placement drives.</p>
+            <span class="metric">Top 7% (23/344)</span>
+          </div>
+          <div class="flashcard">
+            <h4>Ranneeti Ops Simulation</h4>
+            <p>Optimized supply chain mechanics and cost-efficiency matrices at IIM Raipur.</p>
+            <span class="metric">3rd Place</span>
+          </div>
+        </div>
 
           <div class="exp-box" style="border-top: 1px solid var(--border); padding-top: 24px;">
             <div class="exp-meta">
@@ -855,7 +1192,6 @@
               </ul>
             </div>
           </div>
-        </div>
       </section>
 
       <section id="contact" class="reveal cta-section">
@@ -919,6 +1255,73 @@
       }
     }
 
+
+    // CV Modal Logic & Analytics Tracking
+    function openCvModal(e) {
+      if(e) e.preventDefault();
+      document.getElementById('cvModal').classList.add('active');
+      gtag('event', 'cv_modal_open', { 'event_category': 'Engagement' });
+    }
+
+    function closeCvModal() {
+      document.getElementById('cvModal').classList.remove('active');
+    }
+
+    function submitCvRequest() {
+      const name = document.getElementById('reqName').value;
+      const company = document.getElementById('reqCompany').value;
+
+      if(!name || !company) {
+        alert("Please fill out both Name and Company.");
+        return;
+      }
+
+      // Log event to Google Analytics
+      gtag('event', 'cv_download', {
+        'event_category': 'Conversion',
+        'event_label': company,
+        'value': 1
+      });
+
+      // Trigger download
+      const link = document.createElement('a');
+      link.href = "Sagar Makar_Master Resume (1).pdf";
+      link.download = "Sagar_Makar_Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      closeCvModal();
+    }
+
+    // Intercept CV Links
+    document.querySelectorAll('a[href*="Resume"]').forEach(link => {
+      link.addEventListener('click', openCvModal);
+    });
+
+    // Track Section Dwell Time
+    const sectionTimes = {};
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        if (entry.isIntersecting) {
+          sectionTimes[id] = Date.now();
+        } else if (sectionTimes[id]) {
+          const timeSpent = Math.round((Date.now() - sectionTimes[id]) / 1000);
+          if (timeSpent > 2) {
+            gtag('event', 'section_dwell', {
+              'event_category': 'Engagement',
+              'event_label': id,
+              'value': timeSpent
+            });
+          }
+          delete sectionTimes[id];
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('section').forEach(s => sectionObserver.observe(s));
+
     // Intersection Observer for scroll reveal
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -930,5 +1333,28 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+
+  <!-- CV Request Modal -->
+  <div class="modal-overlay" id="cvModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Request Detailed CV</h3>
+        <p>Please provide your details to access my comprehensive quantitative portfolio and CV.</p>
+      </div>
+      <div class="form-group">
+        <label for="reqName">Name</label>
+        <input type="text" id="reqName" placeholder="John Doe" required>
+      </div>
+      <div class="form-group">
+        <label for="reqCompany">Company</label>
+        <input type="text" id="reqCompany" placeholder="Goldman Sachs" required>
+      </div>
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closeCvModal()">Cancel</button>
+        <button class="btn-submit" onclick="submitCvRequest()">Download CV</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
