@@ -13,33 +13,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sagar Makar | IIM Visakhapatnam MBA Portfolio</title>
   <link rel="icon" href="favicon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      /* Light Mode - Quiet Luxury */
-      --bg: #fafafa;
+      /* Light Mode - Finance/Bloomberg Terminal Aesthetic */
+      --bg: #f8fafc;
       --surface: #ffffff;
-      --text-primary: #111827;
-      --text-secondary: #4b5563;
-      --border: #e5e7eb;
-      --accent: #1e3a8a; /* Deep Navy */
-      --accent-hover: #1e40af;
+      --text-primary: #0f172a; /* Deep Navy/Slate */
+      --text-secondary: #475569;
+      --border: #cbd5e1;
+      --accent: #2563eb; /* Bullish Blue */
+      --accent-hover: #1d4ed8;
+      --success: #16a34a; /* Success Green */
       --nav-bg: rgba(255, 255, 255, 0.95);
-      --focus-ring: rgba(30, 58, 138, 0.5);
+      --focus-ring: rgba(37, 99, 235, 0.5);
     }
 
     body.dark-mode {
-      /* Dark Mode - Professional, Softer Neutrals */
-      --bg: #111827;
-      --surface: #1f2937;
-      --text-primary: #f9fafb;
-      --text-secondary: #9ca3af;
-      --border: #374151;
-      --accent: #60a5fa; /* Soft Blue */
-      --accent-hover: #93c5fd;
-      --nav-bg: rgba(17, 24, 39, 0.95);
-      --focus-ring: rgba(96, 165, 250, 0.5);
+      /* Dark Mode - Finance/Bloomberg Terminal Aesthetic */
+      --bg: #0f172a; /* Deep Navy Background */
+      --surface: #1e293b; /* Slate Surface */
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --border: #334155;
+      --accent: #3b82f6; /* Bullish Blue */
+      --accent-hover: #60a5fa;
+      --success: #22c55e; /* Success Green */
+      --nav-bg: rgba(15, 23, 42, 0.95);
+      --focus-ring: rgba(59, 130, 246, 0.5);
     }
 
     * { box-sizing: border-box; scroll-behavior: smooth; margin: 0; padding: 0; }
@@ -570,6 +572,229 @@
       transform: translateY(0);
     }
 
+    /* --- New Financial Portfolio Styles --- */
+
+    /* Typography Overrides */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', 'Inter', sans-serif;
+    }
+
+    /* Ticker Bar */
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .ticker {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: ticker 25s linear infinite;
+    }
+    .ticker:hover {
+      animation-play-state: paused;
+    }
+    .ticker-item {
+      display: inline-block;
+      padding: 0 32px;
+      font-size: 0.85rem;
+      font-family: 'Inter', monospace;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    .ticker-item strong {
+      color: var(--success);
+      margin-left: 8px;
+    }
+    @keyframes ticker {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    /* Animated Progress Bars for Skills */
+    .skill-bar-container {
+      margin-bottom: 16px;
+    }
+    .skill-bar-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background-color: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background-color: var(--accent);
+      width: 0%;
+      border-radius: 4px;
+      transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Stats Counter Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .stat-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .stat-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1);
+    }
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 768px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 4000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.show {
+      display: flex;
+    }
+    .modal-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 32px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    .modal-close:hover {
+      color: var(--text-primary);
+    }
+    .modal-content h3 {
+      margin-bottom: 16px;
+      font-size: 1.25rem;
+    }
+    .modal-content p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: inherit;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--focus-ring);
+    }
+    .modal-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .modal-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    /* Interactive Certifications */
+    .cert-card {
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cert-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent);
+    }
+    .cert-summary {
+      display: none;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      animation: fadeIn 0.3s ease;
+    }
+    .cert-card.active .cert-summary {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* Interactive Elements Restored */
     #progressBar {
       position: fixed;
@@ -663,6 +888,17 @@
     </div>
   </div>
 
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <div class="ticker-item">Winner: National M&A Case Comp <strong>(1/371)</strong></div>
+      <div class="ticker-item">Best Asset Award Q2 2023 <strong>@ IBM</strong></div>
+      <div class="ticker-item">70+ Members Managed <strong>Globally</strong></div>
+      <div class="ticker-item">Winner: National M&A Case Comp <strong>(1/371)</strong></div>
+      <div class="ticker-item">Best Asset Award Q2 2023 <strong>@ IBM</strong></div>
+      <div class="ticker-item">70+ Members Managed <strong>Globally</strong></div>
+    </div>
+  </div>
+
   <div class="whatsapp-container">
     <div class="chat-bubble" id="chatBubble">Looking for a strategy/finance profile? Let's talk.</div>
     <a href="https://wa.me/917673928580" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
@@ -683,7 +919,7 @@
             MBA candidate with 21 months of analytical expertise at IBM. Adept at driving ROI, evaluating market landscapes, and architecting complex quantitative models. Deep passion for Equity Research, valuation strategies, and identifying key market entry insights to support structural M&A activities and strategic investments.
           </p>
           <div class="hero-links">
-            <a href="Sagar Makar_Master Resume (1).pdf" target="_blank" class="btn-primary">Download Resume</a>
+            <a href="#" id="downloadResumeBtn" class="btn-primary">Download Resume</a>
             <a href="https://www.linkedin.com/in/sagarmakar" target="_blank" class="btn-secondary">LinkedIn Profile</a>
             <a href="mailto:sagar.makar24-01@iimv.ac.in" class="btn-secondary">Email Me</a>
           </div>
@@ -692,6 +928,22 @@
     </header>
 
     <main id="main-content" tabindex="-1" style="outline: none;">
+
+      <div class="stats-grid reveal" style="margin-top: 40px;">
+        <div class="stat-item">
+          <div class="stat-number">70+</div>
+          <div class="stat-label">Members Managed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2600+</div>
+          <div class="stat-label">Peers Outranked</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">60+</div>
+          <div class="stat-label">Leads Generated</div>
+        </div>
+      </div>
+
       <section id="experience" class="reveal">
         <div class="section-header">
           <h3>Professional Experience</h3>
@@ -724,7 +976,7 @@
           </div>
           <ul class="timeline-list">
             <li>Delivered a structural <strong>25% increase in ROI</strong> via disciplined cost rationalization and programmatic process automation initiatives across key accounts.</li>
-            <li>Guided a diversified, cross-functional organization of <strong>70+ personnel</strong> to flawlessly execute and integrate complex international consulting projects.</li>
+            <li>Guided a diversified, cross-functional organization of <strong>70+ personnel</strong> to flawlessly execute and integrate complex international consulting projects, resulting in a <strong>30% error decline</strong>.</li>
             <li>Awarded 'Best Asset' (Q2 2023) for pioneering automation matrices that bolstered operational output margins by <strong>20%</strong>.</li>
             <li>Constructed an advanced DevOps-enabled tracking utility, significantly mitigating operational lag and expediting response cycle efficiency by <strong>50%</strong>.</li>
             <li>Placed as a <strong>Finalist (Top tier of 2,600+ entrants)</strong> at the WatsonX Hackathon, developing an impactful Generative AI data prototype.</li>
@@ -743,6 +995,50 @@
             <li>Received commendation from the Talent Acquisition Director for the innovative execution of a strategic product solution.</li>
             <li>Contributed to product prototyping and the framework design of a scalable internal base model used across multiple functions.</li>
           </ul>
+        </div>
+      </section>
+
+      <section id="projects" class="reveal">
+        <div class="section-header">
+          <h3>Academic & Projects</h3>
+        </div>
+
+        <div class="boxed-section">
+          <div class="exp-box" style="border-bottom: none;">
+            <div class="exp-meta">
+              <span class="exp-role">IAPM & CRVA</span>
+              <span class="exp-company">Academic Focus</span>
+            </div>
+            <div class="exp-content">
+              <ul class="exp-bullets">
+                <li>Demonstrated excellence in <strong>fundamental analysis</strong>, evaluating company intrinsic values through comprehensive financial scrutiny.</li>
+                <li>Architected complex <strong>DCF modeling</strong> frameworks to project cash flows and determine accurate corporate valuations.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications" class="reveal">
+        <div class="section-header">
+          <h3>Certifications</h3>
+        </div>
+
+        <div class="achievement-grid">
+          <div class="achievement-card cert-card" onclick="this.classList.toggle('active')">
+            <h4>CFI Financial Statement Analysis</h4>
+            <p>Click to view details</p>
+            <div class="cert-summary">
+              Acquired deep proficiency in reading, interpreting, and analyzing financial statements to evaluate business performance and make informed investment decisions.
+            </div>
+          </div>
+          <div class="achievement-card cert-card" onclick="this.classList.toggle('active')">
+            <h4>Enterprise Design Thinking</h4>
+            <p>Click to view details</p>
+            <div class="cert-summary">
+              Mastered human-centered design principles to solve complex enterprise problems, aligning cross-functional teams around user needs and rapid prototyping.
+            </div>
+          </div>
         </div>
       </section>
 
@@ -789,24 +1085,53 @@
         <div class="boxed-section">
           <div class="skills-group" style="margin-bottom: 24px;">
             <h4 style="margin-bottom: 16px; color: var(--text-primary); border-bottom: 1px solid var(--border); padding-bottom: 8px;">Finance & Valuation</h4>
-            <div class="skills-tags">
-              <span class="skill-tag">Financial Modeling & Valuation</span>
-              <span class="skill-tag">TAM/SAM/SOM Market Sizing</span>
-              <span class="skill-tag">Cost Rationalization</span>
-              <span class="skill-tag">Corporate Finance Strategy</span>
-              <span class="skill-tag">Investment & Pricing Strategy</span>
-              <span class="skill-tag">M&A Analytics</span>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>Financial Modeling & Valuation</span><span>95%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="95%"></div></div>
+            </div>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>TAM/SAM/SOM Market Sizing</span><span>90%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>Cost Rationalization</span><span>85%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="85%"></div></div>
+            </div>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>Corporate Finance Strategy</span><span>88%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="88%"></div></div>
+            </div>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>Investment & Pricing Strategy</span><span>92%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="92%"></div></div>
+            </div>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>M&A Analytics</span><span>85%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="85%"></div></div>
             </div>
           </div>
 
           <div class="skills-group">
             <h4 style="margin-bottom: 16px; color: var(--text-primary); border-bottom: 1px solid var(--border); padding-bottom: 8px;">Analytical & Strategic</h4>
-            <div class="skills-tags">
-              <span class="skill-tag">SQL & Data Mining</span>
-              <span class="skill-tag">Generative AI (WatsonX)</span>
-              <span class="skill-tag">Cross-functional Team Leadership</span>
-              <span class="skill-tag">Enterprise Design Thinking</span>
-              <span class="skill-tag">Quantitative Risk Evaluation</span>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>SQL & Data Mining</span><span>90%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="90%"></div></div>
+            </div>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>Generative AI (WatsonX)</span><span>85%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="85%"></div></div>
+            </div>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>Cross-functional Team Leadership</span><span>95%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="95%"></div></div>
+            </div>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>Enterprise Design Thinking</span><span>88%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="88%"></div></div>
+            </div>
+            <div class="skill-bar-container reveal">
+              <div class="skill-bar-header"><span>Quantitative Risk Evaluation</span><span>82%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" data-width="82%"></div></div>
             </div>
           </div>
         </div>
@@ -867,6 +1192,26 @@
     </div>
   </footer>
 
+  <!-- Resume Download Modal -->
+  <div id="cvModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModalBtn" aria-label="Close modal">&times;</button>
+      <h3>Request Detailed CV</h3>
+      <p>Please provide your details to download the full resume.</p>
+      <form id="cvForm">
+        <div class="form-group">
+          <label for="userName">Name</label>
+          <input type="text" id="userName" required placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="userCompany">Company</label>
+          <input type="text" id="userCompany" required placeholder="Acme Corp">
+        </div>
+        <button type="submit" class="modal-btn">Download PDF</button>
+      </form>
+    </div>
+  </div>
+
   <script>
     // Scroll Progress Bar
     window.addEventListener("scroll", () => {
@@ -910,16 +1255,111 @@
       }
     }
 
-    // Intersection Observer for scroll reveal
+    // Intersection Observer for scroll reveal & animated progress bars
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+
+          // Animate progress bars if present
+          const bar = entry.target.querySelector('.progress-bar-fill');
+          if (bar) {
+            bar.style.width = bar.getAttribute('data-width');
+          }
         }
       });
     }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Analytics Tracking & Modal Logic
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Projects/Certifications Click Tracking
+      const certCards = document.querySelectorAll('.cert-card');
+      certCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const certName = card.querySelector('h4').innerText;
+          gtag('event', 'click', {
+            'event_category': 'Engagement',
+            'event_label': 'Viewed Certification: ' + certName
+          });
+        });
+      });
+
+      // 2. Experience Section Time Tracking
+      let experienceStartTime = 0;
+      const expObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            experienceStartTime = Date.now();
+          } else if (experienceStartTime > 0) {
+            const timeSpent = Math.round((Date.now() - experienceStartTime) / 1000);
+            if (timeSpent > 2) { // Log if spent more than 2 seconds
+              gtag('event', 'timing_complete', {
+                'name': 'experience_view_duration',
+                'value': timeSpent,
+                'event_category': 'Engagement Tracking'
+              });
+            }
+            experienceStartTime = 0; // Reset
+          }
+        });
+      }, { threshold: 0.3 }); // Trigger when 30% visible
+
+      const expSection = document.getElementById('experience');
+      if (expSection) expObserver.observe(expSection);
+
+      // 3. Modal Download Logic & Event Logging
+      const modal = document.getElementById('cvModal');
+      const openBtn = document.getElementById('downloadResumeBtn');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const cvForm = document.getElementById('cvForm');
+
+      openBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('show');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('show');
+      });
+
+      window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('show');
+        }
+      });
+
+      cvForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const userName = document.getElementById('userName').value;
+        const userCompany = document.getElementById('userCompany').value;
+
+        // Log to Google Analytics
+        gtag('event', 'resume_download', {
+          'event_category': 'Lead Generation',
+          'event_label': 'User: ' + userName + ' | Company: ' + userCompany
+        });
+
+        // Trigger PDF Download
+        const link = document.createElement('a');
+        link.href = 'Sagar Makar_Master Resume (1).pdf';
+        link.download = 'Sagar_Makar_Resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Close modal and clear form
+        modal.classList.remove('show');
+        cvForm.reset();
+
+        // Brief success feedback
+        const btn = cvForm.querySelector('button');
+        const origText = btn.innerText;
+        btn.innerText = "Downloading...";
+        setTimeout(() => { btn.innerText = origText; }, 2000);
+      });
+    });
   </script>
 </body>
 </html>
