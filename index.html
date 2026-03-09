@@ -290,7 +290,7 @@
 
     #themeToggle {
       background: none;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border);
       border-radius: 50%;
       width: 36px;
       height: 36px;
@@ -431,39 +431,49 @@
     }
 
 
-    /* Bloomberg Terminal Component */
-    .bloomberg-terminal {
-      background-color: var(--terminal-bg);
-      border: 1px solid #334155;
+    /* Achievements Ticker Component */
+    .achievements-ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 24px;
+      padding: 16px 0;
+      color: var(--text-primary);
       font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
-      color: #38bdf8;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      font-size: 0.95rem;
       margin-bottom: 40px;
       position: relative;
-      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
-    .terminal-header {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #334155;
-      padding-bottom: 12px;
-      margin-bottom: 16px;
-      font-size: 0.85rem;
-      color: #94a3b8;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+    .achievements-ticker-move {
+      display: inline-flex;
+      white-space: nowrap;
+      padding-right: 100%;
+      box-sizing: content-box;
+      animation: ticker 30s linear infinite;
     }
-    .terminal-header span.live {
+    .achievements-ticker-move:hover {
+      animation-play-state: paused;
+    }
+    .achievements-ticker-item {
+      display: inline-block;
+      padding: 0 3rem;
+      position: relative;
+    }
+    .achievements-ticker-item::after {
+      content: "•";
+      position: absolute;
+      right: 1.5rem;
       color: var(--finance-green);
-      font-weight: bold;
-      animation: blink 2s infinite;
     }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-    .terminal-line { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.5; }
-    .terminal-line .cmd { color: #facc15; }
-    .terminal-line .val { color: var(--finance-green); font-weight: bold; }
+    .achievements-ticker-item:last-child::after {
+      display: none;
+    }
+    .achievements-ticker-item span.val {
+      color: var(--finance-green);
+      font-weight: 600;
+    }
 
     /* Flash Card Component */
     .flashcard-grid {
@@ -667,7 +677,7 @@
       font-family: 'Playfair Display', serif;
       font-weight: 700;
       font-size: 1.25rem;
-      color: var(--text-primary);
+      color: var(--accent);
     }
 
     .timeline-company {
@@ -1047,7 +1057,7 @@
           <h3>Academic & Projects</h3>
         </div>
         <div class="exp-box" style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
-          <div class="exp-card" style="padding: 2rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px;">
+          <div class="exp-card" style="padding: 2rem; background-color: var(--surface); border: 1px solid var(--border); border-radius: 8px;">
             <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem;">
               <h4 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary);">IAPM & CRVA</h4>
               <span style="font-size: 0.875rem; color: var(--text-secondary);">Academic Project</span>
@@ -1070,22 +1080,22 @@
         </div>
         <div class="exp-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
 
-          <div class="cert-card interactive-cert" onclick="toggleCert(this)" style="cursor: pointer; padding: 1.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease;">
+          <div class="cert-card interactive-cert" onclick="toggleCert(this)" style="cursor: pointer; padding: 1.5rem; background-color: var(--surface); border: 1px solid var(--border); border-radius: 8px; transition: all 0.3s ease;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
               <h4 style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin: 0;">CFI Financial Statement Analysis</h4>
               <span style="color: var(--finance-green); font-size: 1.2rem;">+</span>
             </div>
-            <div class="cert-details" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+            <div class="cert-details" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
               Mastered the ability to read and analyze financial statements (Income Statement, Balance Sheet, Cash Flow). Developed skills to evaluate liquidity, solvency, and profitability metrics to assess corporate financial health.
             </div>
           </div>
 
-          <div class="cert-card interactive-cert" onclick="toggleCert(this)" style="cursor: pointer; padding: 1.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; transition: all 0.3s ease;">
+          <div class="cert-card interactive-cert" onclick="toggleCert(this)" style="cursor: pointer; padding: 1.5rem; background-color: var(--surface); border: 1px solid var(--border); border-radius: 8px; transition: all 0.3s ease;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
               <h4 style="font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin: 0;">Enterprise Design Thinking</h4>
               <span style="color: var(--finance-green); font-size: 1.2rem;">+</span>
             </div>
-            <div class="cert-details" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
+            <div class="cert-details" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">
               Acquired framework methodologies to solve complex problems through user-centric design. Demonstrated ability to facilitate cross-functional alignment and accelerate project delivery through iterative prototyping.
             </div>
           </div>
@@ -1146,18 +1156,16 @@
           <h3>Key Achievements & Leadership</h3>
         </div>
 
-        <!-- Bloomberg Terminal Style Component -->
-        <div class="bloomberg-terminal">
-          <div class="terminal-header">
-            <span>SAGAR MAKAR EQUITY RESEARCH & IB // TOP ACHIEVEMENTS</span>
-            <span class="live">● LIVE</span>
+        <!-- Achievements Ticker -->
+        <div class="achievements-ticker-wrap">
+          <div class="achievements-ticker-move">
+            <div class="achievements-ticker-item">NATIONAL M&A WAR ROOM: <span class="val">WINNER (1/371 TEAMS)</span></div>
+            <div class="achievements-ticker-item">JUNIOR PLACEMENT REP SELECTION: <span class="val">TOP 7% (23/344)</span></div>
+            <div class="achievements-ticker-item">RANNEETI OPERATIONS SIMULATION (IIM RAIPUR): <span class="val">3RD PLACE</span></div>
+            <div class="achievements-ticker-item">NATIONAL M&A WAR ROOM: <span class="val">WINNER (1/371 TEAMS)</span></div>
+            <div class="achievements-ticker-item">JUNIOR PLACEMENT REP SELECTION: <span class="val">TOP 7% (23/344)</span></div>
+            <div class="achievements-ticker-item">RANNEETI OPERATIONS SIMULATION (IIM RAIPUR): <span class="val">3RD PLACE</span></div>
           </div>
-          <div class="terminal-line"><span class="cmd">&gt; EXECUTE query --top-metrics</span></div>
-          <div class="terminal-line">[SYS] Loading career alpha... DONE.</div>
-          <div class="terminal-line">>> <strong>NATIONAL M&A WAR ROOM:</strong> <span class="val">RANK 1 OUT OF 371 TEAMS</span> (WINNER)</div>
-          <div class="terminal-line">>> <strong>JUNIOR PLACEMENT REP SELECTION:</strong> <span class="val">TOP 7%</span> (23/344)</div>
-          <div class="terminal-line">>> <strong>RANNEETI OPERATIONS SIMULATION (IIM RAIPUR):</strong> <span class="val">3RD PLACE</span></div>
-          <div class="terminal-line"><span class="cmd">&gt; _</span></div>
         </div>
 
         <!-- Flash Card Format -->

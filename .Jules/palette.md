@@ -12,3 +12,7 @@
 **Learning:** When using automated search and replace for DOM structural changes, ensure matched tags correctly balance. The missing `</div>` tag did not break layout due to browser leniency, but strict checking avoids hidden bugs.
 **Action:** Manually verified and removed orphaned closing tag from achievements block and deleted temporary test scripts.
 \n## 2024-03-09 - Pre-Commit Cleanup: CSS Variables\n**Learning:** When injecting new HTML structures with inline styles, ensure CSS variable names map perfectly to the ones defined in the `:root` of the target document.\n**Action:** Replaced undefined variables `--bullish-green` with `--finance-green` and `--border-color` with `--border` to maintain style consistency.
+
+## 2024-03-09 - Pre-Commit Cleanup: CSS Variables
+**Learning:** Continued vigilance is needed when injecting inline styles to ensure all CSS variable names precisely match the defined theme variables in `:root`. Fallbacks work but create visual inconsistencies.
+**Action:** Replaced undefined `--card-bg` and `--border-color` with `--surface` and `--border` respectively.
